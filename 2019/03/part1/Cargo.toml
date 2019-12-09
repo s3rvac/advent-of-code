@@ -1,0 +1,10 @@
+[package]
+name = "aoc-2019-03-part1"
+version = "0.0.1"
+authors = ["Petr Zemek <s3rvac@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+failure = "0.1.6"
+clippy = "0.0.302"
+clap = "2.33.0"
