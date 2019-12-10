@@ -202,7 +202,7 @@ impl Grid {
     }
 }
 
-fn parse_args() -> Result<PathBuf> {
+fn parse_args() -> PathBuf {
     let matches = App::new(crate_name!())
         .arg(
             Arg::with_name("INPUT")
@@ -211,7 +211,7 @@ fn parse_args() -> Result<PathBuf> {
                 .index(1),
         )
         .get_matches();
-    Ok(matches.value_of("INPUT").unwrap().into())
+    matches.value_of("INPUT").unwrap().into()
 }
 
 fn read_input(input_path: &Path) -> Result<(WirePath, WirePath)> {
@@ -229,7 +229,7 @@ fn read_input(input_path: &Path) -> Result<(WirePath, WirePath)> {
 }
 
 fn main() -> Result<()> {
-    let input_file = parse_args()?;
+    let input_file = parse_args();
     let (wire_path1, wire_path2) = read_input(&input_file)?;
     let mut grid = Grid::new();
     match grid.run_wires_and_get_lowest_step_count_to_cross(wire_path1, wire_path2) {

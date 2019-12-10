@@ -18,7 +18,7 @@ type Fuel = u64;
 
 const MIN_MASS: u64 = 6;
 
-fn parse_args() -> Result<PathBuf> {
+fn parse_args() -> PathBuf {
     let matches = App::new(crate_name!())
         .arg(
             Arg::with_name("INPUT")
@@ -27,7 +27,7 @@ fn parse_args() -> Result<PathBuf> {
                 .index(1),
         )
         .get_matches();
-    Ok(matches.value_of("INPUT").unwrap().into())
+    matches.value_of("INPUT").unwrap().into()
 }
 
 fn read_input(input_path: &Path) -> Result<Vec<Mass>> {
@@ -58,7 +58,7 @@ fn total_fuel_for_modules(masses: &[Mass]) -> Fuel {
 }
 
 fn main() -> Result<()> {
-    let input_file = parse_args()?;
+    let input_file = parse_args();
     let masses = read_input(&input_file)?;
     let total_fuel = total_fuel_for_modules(&masses);
     println!("{}", total_fuel);
