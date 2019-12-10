@@ -6,5 +6,4 @@ edition = "2018"
 
 [dependencies]
 failure = "0.1.6"
-clippy = "0.0.302"
 clap = "2.33.0"
