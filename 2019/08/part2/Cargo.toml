@@ -1,0 +1,9 @@
+[package]
+name = "aoc-2019-08-part1"
+version = "0.0.2"
+authors = ["Petr Zemek <s3rvac@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+clap = "2.33.0"
+failure = "0.1.6"
