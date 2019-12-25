@@ -1,10 +1,7 @@
-#[macro_use]
-extern crate failure;
-#[macro_use]
-extern crate clap;
-
+use clap::crate_name;
 use clap::App;
 use clap::Arg;
+use failure::format_err;
 use failure::Error;
 use std::fs::File;
 use std::io::BufRead;

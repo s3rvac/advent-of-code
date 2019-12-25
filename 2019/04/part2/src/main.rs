@@ -1,10 +1,7 @@
-#[macro_use]
-extern crate failure;
-#[macro_use]
-extern crate clap;
-
+use clap::crate_name;
 use clap::App;
 use clap::Arg;
+use failure::format_err;
 
 type InputRange = (u64, u64);
 type Result<T> = std::result::Result<T, failure::Error>;

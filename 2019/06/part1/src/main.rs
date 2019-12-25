@@ -1,13 +1,7 @@
-#[macro_use]
-extern crate failure;
-#[macro_use]
-extern crate clap;
-#[cfg(test)]
-#[macro_use]
-extern crate maplit;
-
+use clap::crate_name;
 use clap::App;
 use clap::Arg;
+use failure::format_err;
 use std::collections::HashMap;
 use std::collections::HashSet;
 use std::fs;
@@ -122,6 +116,7 @@ fn main() -> Result<()> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use maplit::hashset;
 
     #[test]
     fn orbit_map_from_string_returns_correct_orbit_map_for_valid_string() {

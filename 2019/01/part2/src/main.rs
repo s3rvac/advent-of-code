@@ -1,6 +1,4 @@
-#[macro_use]
-extern crate clap;
-
+use clap::crate_name;
 use clap::App;
 use clap::Arg;
 use failure::Error;
