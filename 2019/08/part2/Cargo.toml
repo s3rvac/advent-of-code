@@ -1,6 +1,6 @@
 [package]
-name = "aoc-2019-08-part1"
-version = "0.0.2"
+name = "aoc-2019-08-part2"
+version = "0.0.1"
 authors = ["Petr Zemek <s3rvac@gmail.com>"]
 edition = "2018"
 
