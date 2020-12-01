@@ -2,22 +2,22 @@ package main
 
 import "testing"
 
-func TestFindTwoEntriesWhoseSumIsReturnsErrorWhenNoInputEntries(t *testing.T) {
-	_, err := findTwoEntriesWhoseSumIs([]int{}, 100)
+func TestFindTwoEntriesWithGivenSumReturnsErrorWhenNoInputEntries(t *testing.T) {
+	_, err := findTwoEntriesWithGivenSum([]int{}, 100)
 	if err == nil {
 		t.Errorf("expected an error, got nil")
 	}
 }
 
-func TestFindTwoEntriesWhoseSumIsReturnsErrorWhenNoMatchingEntries(t *testing.T) {
-	_, err := findTwoEntriesWhoseSumIs([]int{1, 2}, 5)
+func TestFindTwoEntriesWithGivenSumReturnsErrorWhenNoMatchingEntries(t *testing.T) {
+	_, err := findTwoEntriesWithGivenSum([]int{1, 2}, 5)
 	if err == nil {
 		t.Errorf("expected an error, got nil")
 	}
 }
 
-func TestFindTwoEntriesWhoseSumIsReturnsCorrectEntriesWhenThereAreMatchingEntries(t *testing.T) {
-	entries, err := findTwoEntriesWhoseSumIs([]int{1, 2, 3}, 5)
+func TestFindTwoEntriesWithGivenSumReturnsCorrectEntriesWhenThereAreMatchingEntries(t *testing.T) {
+	entries, err := findTwoEntriesWithGivenSum([]int{1, 2, 3}, 5)
 	if err != nil {
 		t.Errorf("expected no error, but got %v", err)
 	}
@@ -26,8 +26,8 @@ func TestFindTwoEntriesWhoseSumIsReturnsCorrectEntriesWhenThereAreMatchingEntrie
 	}
 }
 
-func TestFindTwoEntriesWhoseSumIsReturnsCorrectEntriesForInputFromAssignment(t *testing.T) {
-	entries, err := findTwoEntriesWhoseSumIs([]int{1721, 979, 366, 299, 675, 1456}, 2020)
+func TestFindTwoEntriesWithGivenSumReturnsCorrectEntriesForInputFromAssignment(t *testing.T) {
+	entries, err := findTwoEntriesWithGivenSum([]int{1721, 979, 366, 299, 675, 1456}, 2020)
 	if err != nil {
 		t.Errorf("expected no error, but got %v", err)
 	}

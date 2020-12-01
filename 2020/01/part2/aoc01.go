@@ -37,7 +37,7 @@ func loadInputEntries() []int {
 	return entries
 }
 
-func findThreeEntriesWhoseSumIs(entries []int, sum int) ([]int, error) {
+func findThreeEntriesWithGivenSum(entries []int, sum int) ([]int, error) {
 	for i := 0; i < len(entries); i++ {
 		for j := i + 1; j < len(entries); j++ {
 			for k := j + 1; k < len(entries); k++ {
@@ -52,7 +52,7 @@ func findThreeEntriesWhoseSumIs(entries []int, sum int) ([]int, error) {
 
 func main() {
 	inputEntries := loadInputEntries()
-	matchingEntries, err := findThreeEntriesWhoseSumIs(inputEntries, 2020)
+	matchingEntries, err := findThreeEntriesWithGivenSum(inputEntries, 2020)
 	if err != nil {
 		printErrorAndExit(err)
 	}
