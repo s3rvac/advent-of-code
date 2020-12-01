@@ -56,5 +56,5 @@ func main() {
 	if err != nil {
 		printErrorAndExit(err)
 	}
-	fmt.Println(matchingEntries[0] * matchingEntries[2] * matchingEntries[1])
+	fmt.Println(matchingEntries[0] * matchingEntries[1] * matchingEntries[2])
 }
