@@ -72,8 +72,7 @@ func getEarliestTimestampForDepartureOfAllBuses(schedule Schedule) *big.Int {
 		}
 	}
 
-	earliestTimestamp := crt(a, n)
-	return N.Sub(N, earliestTimestamp)
+	return N.Sub(N, crt(a, n))
 }
 
 func printErrorAndExit(err error) {
