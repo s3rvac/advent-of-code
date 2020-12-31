@@ -5,7 +5,9 @@ My solutions to [Advent of Code 2020](https://adventofcode.com/2020/).
 They are implemented in [Go](https://golang.org/) (tested on version version
 1.15).
 
-I have used these exercises to learn the language.
+I have used these exercises to learn the language. If you know Czech, you can
+read about my experience
+[here](https://cs-blog.petrzemek.net/2020-12-31-advent-of-code-2020-a-me-dojmy-z-go).
 
 ## Solution Table
 
