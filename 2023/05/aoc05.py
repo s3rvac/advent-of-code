@@ -1,6 +1,8 @@
 #
 # Advent of Code 2023, day 05
 #
+# Note: Although the script is slow, it does the job.
+#
 
 import re
 import textwrap
