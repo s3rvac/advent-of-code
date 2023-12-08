@@ -6,6 +6,8 @@ They are implemented in [Python](https://www.python.org/) (tested on version ver
 
 ## Solution Table
 
+I only provide solutions for the complete puzzles (i.e. second parts).
+
 | Day | Puzzle | Solution | Runtime |
 | ---- | ---- | ---- | ---- |
 | 1 | [Trebuchet?!](https://adventofcode.com/2023/day/1) | [01](01) | 0.12 second |
