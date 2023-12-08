@@ -2,7 +2,6 @@
 # Advent of Code 2023, day 04
 #
 
-import collections
 import re
 import textwrap
 import unittest
