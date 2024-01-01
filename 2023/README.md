@@ -19,5 +19,6 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 7 | [Camel Cards](https://adventofcode.com/2023/day/7) | [07](07) | 0.14 second |
 | 8 | [Haunted Wasteland](https://adventofcode.com/2023/day/8) | [08](08) | 0.09 second |
 | 9 | [Mirage Maintenance](https://adventofcode.com/2023/day/9) | [09](09) | 0.06 second |
+| 10 | [Pipe Maze](https://adventofcode.com/2023/day/10) | [10](10) | 0.75 second |
 
 (Work in progress. I had to make a pause due to unforeseen circumstances.)
