@@ -21,5 +21,6 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 9 | [Mirage Maintenance](https://adventofcode.com/2023/day/9) | [09](09) | 0.06 second |
 | 10 | [Pipe Maze](https://adventofcode.com/2023/day/10) | [10](10) | 0.75 second |
 | 11 | [Cosmic Expansion](https://adventofcode.com/2023/day/11) | [11](11) | 0.09 second |
+| 12 | [Hot Springs](https://adventofcode.com/2023/day/12) | [12](12) | 0.8 second |
 
 (Work in progress. I had to make a pause due to unforeseen circumstances.)
