@@ -22,5 +22,6 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 10 | [Pipe Maze](https://adventofcode.com/2023/day/10) | [10](10) | 0.75 second |
 | 11 | [Cosmic Expansion](https://adventofcode.com/2023/day/11) | [11](11) | 0.09 second |
 | 12 | [Hot Springs](https://adventofcode.com/2023/day/12) | [12](12) | 0.8 second |
+| 13 | [Point of Incidence](https://adventofcode.com/2023/day/13) | [13](13) | 0.06 second |
 
 (Work in progress. I had to make a pause due to unforeseen circumstances.)
