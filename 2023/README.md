@@ -23,5 +23,6 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 11 | [Cosmic Expansion](https://adventofcode.com/2023/day/11) | [11](11) | 0.09 second |
 | 12 | [Hot Springs](https://adventofcode.com/2023/day/12) | [12](12) | 0.8 second |
 | 13 | [Point of Incidence](https://adventofcode.com/2023/day/13) | [13](13) | 0.06 second |
+| 14 | [Parabolic Reflector Dish](https://adventofcode.com/2023/day/14) | [14](14) | 26.5 seconds |
 
 (Work in progress. I had to make a pause due to unforeseen circumstances.)
