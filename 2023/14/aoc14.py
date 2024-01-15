@@ -2,8 +2,8 @@
 # Advent of Code 2023, day 14
 #
 
-import unittest
 import textwrap
+import unittest
 
 
 def read_input():
