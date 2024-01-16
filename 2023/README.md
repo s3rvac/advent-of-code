@@ -25,5 +25,6 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 13 | [Point of Incidence](https://adventofcode.com/2023/day/13) | [13](13) | 0.06 second |
 | 14 | [Parabolic Reflector Dish](https://adventofcode.com/2023/day/14) | [14](14) | 26.5 seconds |
 | 15 | [Lens Library](https://adventofcode.com/2023/day/15) | [15](15) | 0.07 second |
+| 16 | [The Floor Will Be Lava](https://adventofcode.com/2023/day/16) | [16](16) | 5.9 seconds |
 
 (Work in progress. I had to make a pause due to unforeseen circumstances.)
