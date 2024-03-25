@@ -28,7 +28,7 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 16 | [The Floor Will Be Lava](https://adventofcode.com/2023/day/16) | [16](16) | 5.9 seconds |
 | 17 | [Clumsy Crucible](https://adventofcode.com/2023/day/17) | TBD | TBD |
 | 18 | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18) | TBD | TBD |
-| 19 | [Aplenty](https://adventofcode.com/2023/day/19) | TBD | TBD |
+| 19 | [Aplenty](https://adventofcode.com/2023/day/19) | [19](19) | 0.09 second |
 | 20 | [Pulse Propagation](https://adventofcode.com/2023/day/20) | TBD | TBD |
 | 21 | [Step Counter](https://adventofcode.com/2023/day/21) | TBD | TBD |
 | 22 | [Sand Slabs](https://adventofcode.com/2023/day/22) | TBD | TBD |
