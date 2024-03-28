@@ -34,6 +34,6 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 22 | [Sand Slabs](https://adventofcode.com/2023/day/22) | TBD | TBD |
 | 23 | [A Long Walk](https://adventofcode.com/2023/day/23) | TBD | TBD |
 | 24 | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24) | TBD | TBD |
-| 25 | [Snowverload](https://adventofcode.com/2023/day/25) | TBD | TBD |
+| 25 | [Snowverload](https://adventofcode.com/2023/day/25) | [25](25) | 3 seconds |
 
 (Work in progress. I had to make a pause due to unforeseen circumstances.)
