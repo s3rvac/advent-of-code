@@ -2,7 +2,7 @@
 
 My solutions to [Advent of Code 2023](https://adventofcode.com/2023/).
 
-They are implemented in [Python](https://www.python.org/) (tested on version 3.11).
+They are implemented in [Python](https://www.python.org/). I have developed them with Python version 3.11.
 
 ## Solution Table
 
@@ -36,4 +36,4 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 24 | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24) | TBD | TBD |
 | 25 | [Snowverload](https://adventofcode.com/2023/day/25) | [25](25) | 3 seconds |
 
-(Work in progress. I had to make a pause due to unforeseen circumstances.)
+(Work in progress as I had to take several pauses.)
