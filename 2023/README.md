@@ -29,7 +29,7 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 17 | [Clumsy Crucible](https://adventofcode.com/2023/day/17) | TBD | TBD |
 | 18 | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18) | TBD | TBD |
 | 19 | [Aplenty](https://adventofcode.com/2023/day/19) | [19](19) | 0.09 second |
-| 20 | [Pulse Propagation](https://adventofcode.com/2023/day/20) | TBD | TBD |
+| 20 | [Pulse Propagation](https://adventofcode.com/2023/day/20) | [20](20) | 0.4 second |
 | 21 | [Step Counter](https://adventofcode.com/2023/day/21) | TBD | TBD |
 | 22 | [Sand Slabs](https://adventofcode.com/2023/day/22) | TBD | TBD |
 | 23 | [A Long Walk](https://adventofcode.com/2023/day/23) | TBD | TBD |
