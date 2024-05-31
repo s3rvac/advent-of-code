@@ -2,7 +2,7 @@
 
 My solutions to [Advent of Code 2023](https://adventofcode.com/2023/).
 
-They are implemented in [Python](https://www.python.org/). I have developed them with Python version 3.11.
+They are implemented in [Python](https://www.python.org/) (tested with version 3.12).
 
 ## Solution Table
 
