@@ -6,7 +6,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 
 ## Solution Table
 
-I only provide solutions for the complete puzzles (i.e. second parts).
+Unless specified, the solutions are for the second part of the puzzles.
 
 | Day | Puzzle | Solution | Runtime |
 | ---- | ---- | ---- | ---- |
@@ -27,7 +27,7 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 15 | [Lens Library](https://adventofcode.com/2023/day/15) | [15](15) | 0.07 seconds |
 | 16 | [The Floor Will Be Lava](https://adventofcode.com/2023/day/16) | [16](16) | 1.2 seconds |
 | 17 | [Clumsy Crucible](https://adventofcode.com/2023/day/17) | [17](17) | 5.8 seconds |
-| 18 | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18) | TBD | TBD |
+| 18 | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18) | [18](18)* | 0.3 seconds* |
 | 19 | [Aplenty](https://adventofcode.com/2023/day/19) | [19](19) | 0.08 seconds |
 | 20 | [Pulse Propagation](https://adventofcode.com/2023/day/20) | [20](20) | 0.3 seconds |
 | 21 | [Step Counter](https://adventofcode.com/2023/day/21) | TBD | TBD |
@@ -35,3 +35,5 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 23 | [A Long Walk](https://adventofcode.com/2023/day/23) | TBD | TBD |
 | 24 | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24) | TBD | TBD |
 | 25 | [Snowverload](https://adventofcode.com/2023/day/25) | [25](25) | 6.5 seconds |
+
+\* The solution and runtime is only for the first part of the puzzle.
