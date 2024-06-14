@@ -26,7 +26,7 @@ I only provide solutions for the complete puzzles (i.e. second parts).
 | 14 | [Parabolic Reflector Dish](https://adventofcode.com/2023/day/14) | [14](14) | 3.3 seconds |
 | 15 | [Lens Library](https://adventofcode.com/2023/day/15) | [15](15) | 0.07 seconds |
 | 16 | [The Floor Will Be Lava](https://adventofcode.com/2023/day/16) | [16](16) | 1.2 seconds |
-| 17 | [Clumsy Crucible](https://adventofcode.com/2023/day/17) | TBD | TBD |
+| 17 | [Clumsy Crucible](https://adventofcode.com/2023/day/17) | [17](17) | 5.8 seconds |
 | 18 | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18) | TBD | TBD |
 | 19 | [Aplenty](https://adventofcode.com/2023/day/19) | [19](19) | 0.08 seconds |
 | 20 | [Pulse Propagation](https://adventofcode.com/2023/day/20) | [20](20) | 0.3 seconds |
