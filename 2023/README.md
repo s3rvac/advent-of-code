@@ -6,7 +6,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 
 ## Solution Table
 
-Unless specified, the solutions are for the second part of the puzzles.
+Unless written otherwise, the solutions are for the second part of the puzzles.
 
 | Day | Puzzle | Solution | Runtime |
 | ---- | ---- | ---- | ---- |
