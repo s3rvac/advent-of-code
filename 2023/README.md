@@ -30,7 +30,7 @@ Unless written otherwise, the solutions are for the second part of the puzzles.
 | 18 | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18) | [18](18)* | 0.3 seconds* |
 | 19 | [Aplenty](https://adventofcode.com/2023/day/19) | [19](19) | 0.08 seconds |
 | 20 | [Pulse Propagation](https://adventofcode.com/2023/day/20) | [20](20) | 0.3 seconds |
-| 21 | [Step Counter](https://adventofcode.com/2023/day/21) | TBD | TBD |
+| 21 | [Step Counter](https://adventofcode.com/2023/day/21) | [21](21)* | 0.2 seconds* |
 | 22 | [Sand Slabs](https://adventofcode.com/2023/day/22) | [22](22) | 37 seconds |
 | 23 | [A Long Walk](https://adventofcode.com/2023/day/23) | TBD | TBD |
 | 24 | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24) | TBD | TBD |
