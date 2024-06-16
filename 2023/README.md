@@ -36,4 +36,4 @@ Unless written otherwise, the solutions are for the second part of the puzzles.
 | 24 | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24) | TBD | TBD |
 | 25 | [Snowverload](https://adventofcode.com/2023/day/25) | [25](25) | 6.5 seconds |
 
-\* The solution and runtime is only for the first part of the puzzle.
+\* The solution and runtime are only for the first part of the puzzle.
