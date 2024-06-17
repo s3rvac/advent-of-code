@@ -33,7 +33,7 @@ Unless written otherwise, the solutions are for the second part of the puzzles.
 | 21 | [Step Counter](https://adventofcode.com/2023/day/21) | [21](21)* | 0.2 seconds* |
 | 22 | [Sand Slabs](https://adventofcode.com/2023/day/22) | [22](22) | 37 seconds |
 | 23 | [A Long Walk](https://adventofcode.com/2023/day/23) | [23](23) | 3 days |
-| 24 | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24) | TBD | TBD |
+| 24 | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24) | [24](24)* | 0.24 seconds* |
 | 25 | [Snowverload](https://adventofcode.com/2023/day/25) | [25](25) | 6.5 seconds |
 
 \* The solution and runtime are only for the first part of the puzzle.
