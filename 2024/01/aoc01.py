@@ -21,19 +21,14 @@ def parse_input(input):
     return left_list, right_list
 
 
-def find_distances_between_lists(left_list, right_list):
-    left_list.sort()
-    right_list.sort()
-    distances = []
-    for l, r in zip(left_list, right_list):
-        distances.append(abs(l - r))
-    return distances
+def find_similarity_scores_between_lists(left_list, right_list):
+    return [n * right_list.count(n) for n in left_list]
 
 
 def run_program(input):
     left_list, right_list = parse_input(input)
-    distances = find_distances_between_lists(left_list, right_list)
-    return sum(distances)
+    similarity_scores = find_similarity_scores_between_lists(left_list, right_list)
+    return sum(similarity_scores)
 
 
 if __name__ == "__main__":
@@ -56,4 +51,4 @@ class Tests(unittest.TestCase):
 
         result = run_program(input)
 
-        self.assertEqual(result, 11)
+        self.assertEqual(result, 31)
