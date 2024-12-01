@@ -10,7 +10,7 @@ Unless written otherwise, the solutions are for the second part of the puzzles.
 
 | Day | Puzzle | Solution | Runtime |
 | ---- | ---- | ---- | ---- |
-| 1 | | | |
+| 1 | [Historian Hysteria](https://adventofcode.com/2024/day/1) | [01](01) | TBD |
 | 2 | | | |
 | 3 | | | |
 | 4 | | | |
