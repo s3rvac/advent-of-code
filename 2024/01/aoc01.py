@@ -13,21 +13,20 @@ def read_input():
 
 
 def parse_input(input):
-    left_list, right_list = [], []
+    lists = [[], []]
     for line in input.strip().split("\n"):
-        l, r = re.split(r" +", line)
-        left_list.append(int(l))
-        right_list.append(int(r))
-    return left_list, right_list
+        for i, n in enumerate(re.split(r" +", line)):
+            lists[i].append(int(n))
+    return lists
 
 
-def find_similarity_scores_between_lists(left_list, right_list):
-    return [n * right_list.count(n) for n in left_list]
+def find_similarity_scores_between_lists(lists):
+    return [n * lists[1].count(n) for n in lists[0]]
 
 
 def run_program(input):
-    left_list, right_list = parse_input(input)
-    similarity_scores = find_similarity_scores_between_lists(left_list, right_list)
+    lists = parse_input(input)
+    similarity_scores = find_similarity_scores_between_lists(lists)
     return sum(similarity_scores)
 
 
