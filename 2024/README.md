@@ -6,11 +6,9 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 
 ## Solution Table
 
-Unless written otherwise, the solutions are for the second part of the puzzles.
-
-| Day | Puzzle | Solution | Runtime |
+| Day | Puzzle | Solutions | Runtimes |
 | ---- | ---- | ---- | ---- |
-| 1 | [Historian Hysteria](https://adventofcode.com/2024/day/1) | [01](01) | 0.1 seconds |
+| 1 | [Historian Hysteria](https://adventofcode.com/2024/day/1) | [part 1](01/aoc01_part1.py), [part 2](01/aoc01_part2.py) | 0.1 seconds, 0.1 seconds |
 | 2 | | | |
 | 3 | | | |
 | 4 | | | |

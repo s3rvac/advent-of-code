@@ -1,5 +1,5 @@
 #
-# Advent of Code 2024, day 01
+# Advent of Code 2024, day 01, part 1
 #
 
 import re
@@ -20,14 +20,17 @@ def parse_input(input):
     return lists
 
 
-def find_similarity_scores_between_lists(lists):
-    return [n * lists[1].count(n) for n in lists[0]]
+def find_distances_between_lists(lists):
+    distances = []
+    for l, r in zip(sorted(lists[0]), sorted(lists[1])):
+        distances.append(abs(l - r))
+    return distances
 
 
 def run_program(input):
     lists = parse_input(input)
-    similarity_scores = find_similarity_scores_between_lists(lists)
-    return sum(similarity_scores)
+    distances = find_distances_between_lists(lists)
+    return sum(distances)
 
 
 if __name__ == "__main__":
@@ -50,4 +53,4 @@ class Tests(unittest.TestCase):
 
         result = run_program(input)
 
-        self.assertEqual(result, 31)
+        self.assertEqual(result, 11)
