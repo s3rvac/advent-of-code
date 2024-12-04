@@ -11,7 +11,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 1 | [Historian Hysteria](https://adventofcode.com/2024/day/1) | [part 1](01/aoc01_part1.py), [part 2](01/aoc01_part2.py) | 0.1 seconds, 0.1 seconds |
 | 2 | [Red-Nosed Reports](https://adventofcode.com/2024/day/2) | [part 1](02/aoc02_part1.py), [part 2](02/aoc02_part2.py) | 0.1 seconds, 0.1 seconds |
 | 3 | [Mull It Over](https://adventofcode.com/2024/day/3) | [part 1](03/aoc03_part1.py), [part 2](03/aoc03_part2.py) | 0.1 seconds, 0.1 seconds |
-| 4 | | | |
+| 4 | [Ceres Search](https://adventofcode.com/2024/day/4) | [part 1](04/aoc04_part1.py), [part 2](04/aoc04_part2.py) | 0.2 seconds, 0.1 seconds |
 | 5 | | | |
 | 6 | | | |
 | 7 | | | |
