@@ -18,7 +18,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 8 | [Resonant Collinearity](https://adventofcode.com/2024/day/8) | [part 1](08/aoc08_part1.py), [part 2](08/aoc08_part2.py) | 0.5 seconds, 0.3 seconds |
 | 9 | [Disk Fragmenter](https://adventofcode.com/2024/day/9) | [part 1](09/aoc09_part1.py), [part 2](09/aoc09_part2.py) | 2.2 seconds, 1.2 seconds |
 | 10 | [Hoof It](https://adventofcode.com/2024/day/10) | [part 1](10/aoc10_part1.py), [part 2](10/aoc10_part2.py) | 0.1 seconds, 0.1 seconds |
-| 11 | | | |
+| 11 | [Plutonian Pebbles](https://adventofcode.com/2024/day/11) | [part 1](11/aoc11_part1.py), [part 2](11/aoc11_part2.py) | 0.1 seconds, 0.2 seconds |
 | 12 | | | |
 | 13 | | | |
 | 14 | | | |
