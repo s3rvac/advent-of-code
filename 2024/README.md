@@ -21,7 +21,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 11 | [Plutonian Pebbles](https://adventofcode.com/2024/day/11) | [part 1](11/aoc11_part1.py), [part 2](11/aoc11_part2.py) | 0.1 seconds, 0.2 seconds |
 | 12 | [Garden Groups](https://adventofcode.com/2024/day/12) | [part 1](12/aoc12_part1.py), [part 2](12/aoc12_part2.py) | 0.1 seconds, 0.1 seconds |
 | 13 | [Claw Contraption](https://adventofcode.com/2024/day/13) | [part 1](13/aoc13_part1.py), [part 2](13/aoc13_part2.py) | 0.1 seconds, 0.1 seconds |
-| 14 | | | |
+| 14 | [Restroom Redoubt](https://adventofcode.com/2024/day/14) | [part 1](14/aoc14_part1.py), [part 2](14/aoc14_part2.py) | 0.1 seconds, 0.6 seconds |
 | 15 | | | |
 | 16 | | | |
 | 17 | | | |
