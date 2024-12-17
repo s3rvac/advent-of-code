@@ -36,4 +36,4 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 24 | | | |
 | 25 | | | |
 
-* = tailored to my specific input.
+\* = tailored to my specific input
