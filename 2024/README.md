@@ -24,6 +24,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 14 | [Restroom Redoubt](https://adventofcode.com/2024/day/14) | [part 1](14/aoc14_part1.py), [part 2](14/aoc14_part2.py) | 0.1 seconds, 0.6 seconds |
 | 15 | [Warehouse Woes](https://adventofcode.com/2024/day/15) | [part 1](15/aoc15_part1.py), [part 2](15/aoc15_part2.py) | 0.1 seconds, 0.1 seconds |
 | 16 | [Reindeer Maze](https://adventofcode.com/2024/day/16) | [part 1](16/aoc16_part1.py), [part 2](16/aoc16_part2.py) | 69 seconds, 69 seconds |
+| 17 | [Chronospatial Computer](https://adventofcode.com/2024/day/17) | [part 1](17/aoc17_part1.py), [part 2](17/aoc17_part2.py)* | 0.1 seconds, 0.1 seconds |
 | 16 | | | |
 | 17 | | | |
 | 18 | | | |
@@ -34,3 +35,5 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 23 | | | |
 | 24 | | | |
 | 25 | | | |
+
+* = tailored to my specific input.
