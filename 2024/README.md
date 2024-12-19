@@ -26,7 +26,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 16 | [Reindeer Maze](https://adventofcode.com/2024/day/16) | [part 1](16/aoc16_part1.py), [part 2](16/aoc16_part2.py) | 0.2 seconds, 12 seconds |
 | 17 | [Chronospatial Computer](https://adventofcode.com/2024/day/17) | [part 1](17/aoc17_part1.py), [part 2](17/aoc17_part2.py)* | 0.1 seconds, 0.1 seconds |
 | 18 | [RAM Run](https://adventofcode.com/2024/day/18) | [part 1](18/aoc18_part1.py), [part 2](18/aoc18_part2.py) | 0.1 seconds, 0.1 seconds |
-| 19 | | | |
+| 19 | [Linen Layout](https://adventofcode.com/2024/day/19) | [part 1](19/aoc19_part1.py), [part 2](19/aoc19_part2.py) | 0.1 seconds, 0.2 seconds |
 | 20 | | | |
 | 21 | | | |
 | 22 | | | |
