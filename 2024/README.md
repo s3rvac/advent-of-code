@@ -27,7 +27,6 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 17 | [Chronospatial Computer](https://adventofcode.com/2024/day/17) | [part 1](17/aoc17_part1.py), [part 2](17/aoc17_part2.py)* | 0.1 seconds, 0.1 seconds |
 | 18 | [RAM Run](https://adventofcode.com/2024/day/18) | [part 1](18/aoc18_part1.py), [part 2](18/aoc18_part2.py) | 0.1 seconds, 0.1 seconds |
 | 19 | | | |
-| 19 | | | |
 | 20 | | | |
 | 21 | | | |
 | 22 | | | |
