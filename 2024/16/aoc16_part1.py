@@ -2,14 +2,16 @@
 # Advent of Code 2024, day 16, part 1
 #
 
+import heapq
 import textwrap
 import unittest
 
 
 SCORE_INCREASE_STEP = 1
 SCORE_INCREASE_TURN = 1000
-TILE_REINDEER = "S"
+TILE_START = "S"
 TILE_END = "E"
+TILE_WALL = "#"
 FACES = ["N", "E", "S", "W"]
 DIRECTIONS = {
     "N": (-1, 0),
@@ -28,65 +30,69 @@ def parse_input(input):
     return [list(line) for line in input.strip().split("\n")]
 
 
-def find_reindeer(map):
+def all_tiles(map):
     for i in range(len(map)):
         for j in range(len(map[i])):
-            if map[i][j] == TILE_REINDEER:
-                return i, j
-    raise AssertionError("reindeer not found")
+            yield i, j
 
 
-def compute_best_score_to_end(map):
-    def try_step(i, j, face, score, path):
-        di, dj = DIRECTIONS[face]
-        i, j = i + di, j + dj
-        if map[i][j] != "#" and (i, j) not in path:
-            new_score = score + SCORE_INCREASE_STEP
-            new_path = path | {(i, j)}
-            to_check.append((i, j, face, new_score, new_path))
+def find_tile(map, tile):
+    for i, j in all_tiles(map):
+        if map[i][j] == tile:
+            return i, j
+    raise AssertionError(f"tile {tile} not found")
 
-    # Do a depth-first search while keeping the score and the traversed paths.
-    i, j = find_reindeer(map)
-    best_score = None
-    visited = {}
-    # Format: (i, j, face, score, path)
-    to_check = [(i, j, "E", 0, {(i, j)})]
-    while to_check:
-        i, j, face, score, path = to_check.pop()
 
-        if map[i][j] == TILE_END:
-            if best_score is None or score < best_score:
-                best_score = score
+def faces_are_one_turn_away(face1, face2):
+    i1 = FACES.index(face1)
+    i2 = FACES.index(face2)
+    return abs(i1 - i2) == 1 or {i1, i2} == {0, len(FACES) - 1}
+
+
+def compute_best_score_from_start_to_end(map):
+    # Use a simplified version of Dijkstra's algorithm to find the path from
+    # the start to the end having the lowest score.
+    START = find_tile(map, TILE_START)
+    END = find_tile(map, TILE_END)
+    INFINITY = len(map) * len(map[0]) * SCORE_INCREASE_TURN
+
+    scores = {(*START, "E"): 0}
+    for i, j in all_tiles(map):
+        if map[i][j] != TILE_WALL:
+            for face in FACES:
+                scores.setdefault((i, j, face), INFINITY)
+
+    pq = []
+    # Format: (score, i, j, face)
+    heapq.heappush(pq, (0, *START, "E"))
+    while pq:
+        score, i, j, face = heapq.heappop(pq)
+        if score > scores[(i, j, face)]:
             continue
 
-        # (Optimization) If we have already visited the tile with a lower
-        # score, it does not make sense to pursue the current path.
-        visited_score = visited.get((i, j, face))
-        if visited_score is not None and score > visited_score:
-            continue
-        visited[(i, j, face)] = score
+        for new_face, (di, dj) in DIRECTIONS.items():
+            new_i, new_j = i + di, j + dj
+            if (
+                0 <= new_i < len(map)
+                and 0 <= new_j < len(map[i])
+                and map[new_i][new_j] != TILE_WALL
+            ):
+                if new_face == face:
+                    new_score = score + SCORE_INCREASE_STEP
+                elif faces_are_one_turn_away(face, new_face):
+                    new_score = score + SCORE_INCREASE_STEP + SCORE_INCREASE_TURN
+                else:
+                    new_score = score + SCORE_INCREASE_STEP + 2 * SCORE_INCREASE_TURN
+                if new_score < scores[(new_i, new_j, new_face)]:
+                    scores[(new_i, new_j, new_face)] = new_score
+                    heapq.heappush(pq, (new_score, new_i, new_j, new_face))
 
-        # (Optimization) If we already know that our path cannot result in the
-        # best score, we can stop pursuing it.
-        if best_score is not None and score > best_score:
-            continue
-
-        # Try doing a step forward.
-        try_step(i, j, face, score, path)
-
-        # Try turning left and doing a step.
-        left_face = FACES[(FACES.index(face) - 1) % len(FACES)]
-        try_step(i, j, left_face, score + SCORE_INCREASE_TURN, path)
-
-        # Try turning right and doing a step.
-        right_face = FACES[(FACES.index(face) + 1) % len(FACES)]
-        try_step(i, j, right_face, score + SCORE_INCREASE_TURN, path)
-    return best_score
+    return min(score for (i, j, _), score in scores.items() if (i, j) == END)
 
 
 def run_program(input):
     map = parse_input(input)
-    return compute_best_score_to_end(map)
+    return compute_best_score_from_start_to_end(map)
 
 
 if __name__ == "__main__":
