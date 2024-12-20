@@ -38,3 +38,7 @@ read about my experience
 | 23 | [Crab Cups](https://adventofcode.com/2020/day/23) | [part 1](23/part1), [part 2](23/part2) | 4.5 h |
 | 24 | [Lobby Layout](https://adventofcode.com/2020/day/24) | [part 1](24/part1), [part 2](24/part2) | 0.3 s |
 | 25 | [Combo Breaker](https://adventofcode.com/2020/day/25) | [part 1](25/part1), [part 2](25/part2) | 24 ms |
+
+## Main Page
+
+[![Advent of Code 2020 Screenshot](aoc-2020-screenshot.png "Advent of Code 2020 Screenshot")](aoc-2020-screenshot.png)
