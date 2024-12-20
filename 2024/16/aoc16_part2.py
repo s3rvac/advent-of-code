@@ -90,7 +90,7 @@ def get_score_dict_for_starting_positions(map, starts_with_faces):
                     new_score = score + SCORE_INCREASE_STEP + SCORE_INCREASE_TURN
                 else:
                     new_score = score + SCORE_INCREASE_STEP + 2 * SCORE_INCREASE_TURN
-                if new_score <= scores[(new_i, new_j, new_face)]:
+                if new_score < scores[(new_i, new_j, new_face)]:
                     scores[(new_i, new_j, new_face)] = new_score
                     heapq.heappush(pq, (new_score, new_i, new_j, new_face))
 
