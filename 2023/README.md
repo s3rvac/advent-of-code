@@ -37,3 +37,7 @@ Unless written otherwise, the solutions are for the second part of the puzzles.
 | 25 | [Snowverload](https://adventofcode.com/2023/day/25) | [25](25) | 6.5 seconds |
 
 \* The solution and runtime are only for the first part of the puzzle.
+
+## Main Page
+
+[![Advent of Code 2023 Screenshot](aoc-2023-screenshot.png "Advent of Code 2023 Screenshot")](aoc-2023-screenshot.png)
