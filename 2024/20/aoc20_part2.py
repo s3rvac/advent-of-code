@@ -43,11 +43,21 @@ def taxicab_distance(i1, j1, i2, j2):
 
 
 def all_pairs_of_free_space_at_most_length_apart(map, max_length):
-    pairs = []
-    for (i1, j1), (i2, j2) in itertools.product(all_non_wall_tiles(map), repeat=2):
-        if taxicab_distance(i1, j1, i2, j2) <= max_length:
-            pairs.append(((i1, j1), (i2, j2)))
-    return pairs
+    # We could just use `itertools.product(all_non_wall_tiles(map), repeat=2)`,
+    # but the following way is much faster (altough less readable) as it goes
+    # over fewer pairs.
+    for i1, j1 in all_non_wall_tiles(map):
+        for i2 in range(
+            max(1, i1 - max_length - 1), min(i1 + max_length + 1, len(map) - 1)
+        ):
+            for j2 in range(
+                max(1, j1 - max_length - 1), min(j1 + max_length + 1, len(map[i2]) - 1)
+            ):
+                if (
+                    map[i2][j2] != TILE_WALL
+                    and taxicab_distance(i1, j1, i2, j2) <= max_length
+                ):
+                    yield (i1, j1), (i2, j2)
 
 
 def get_times_to_get_to_each_tile_from_start_tile(map, start_tile):
