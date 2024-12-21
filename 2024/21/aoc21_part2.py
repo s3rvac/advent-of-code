@@ -33,8 +33,6 @@ def numeric_keypresses_for(fr, to):
     #     | 0 | A |
     #     +---+---+
     match fr, to:
-        case "A", "A":
-            return "A"
         case "A", "0":
             return "<A"
         case "A", "1":
@@ -57,8 +55,6 @@ def numeric_keypresses_for(fr, to):
             return "^^^A"
         case "0", "A":
             return ">A"
-        case "0", "0":
-            return "A"
         case "0", "1":
             return "^<A"
         case "0", "2":
@@ -81,8 +77,6 @@ def numeric_keypresses_for(fr, to):
             return ">>vA"
         case "1", "0":
             return ">vA"
-        case "1", "1":
-            return "A"
         case "1", "2":
             return ">A"
         case "1", "3":
@@ -105,8 +99,6 @@ def numeric_keypresses_for(fr, to):
             return "vA"
         case "2", "1":
             return "<A"
-        case "2", "2":
-            return "A"
         case "2", "3":
             return ">A"
         case "2", "4":
@@ -129,8 +121,6 @@ def numeric_keypresses_for(fr, to):
             return "<<A"
         case "3", "2":
             return "<A"
-        case "3", "3":
-            return "A"
         case "3", "4":
             return "<<^A"
         case "3", "5":
@@ -153,8 +143,6 @@ def numeric_keypresses_for(fr, to):
             return "v>A"
         case "4", "3":
             return "v>>A"
-        case "4", "4":
-            return "A"
         case "4", "5":
             return ">A"
         case "4", "6":
@@ -177,8 +165,6 @@ def numeric_keypresses_for(fr, to):
             return "v>A"
         case "5", "4":
             return "<A"
-        case "5", "5":
-            return "A"
         case "5", "6":
             return ">A"
         case "5", "7":
@@ -201,8 +187,6 @@ def numeric_keypresses_for(fr, to):
             return "<<A"
         case "6", "5":
             return "<A"
-        case "6", "6":
-            return "A"
         case "6", "7":
             return "^<<A"
         case "6", "8":
@@ -225,8 +209,6 @@ def numeric_keypresses_for(fr, to):
             return "v>A"
         case "7", "6":
             return "v>>A"
-        case "7", "7":
-            return "A"
         case "7", "8":
             return ">A"
         case "7", "9":
@@ -249,8 +231,6 @@ def numeric_keypresses_for(fr, to):
             return "v>A"
         case "8", "7":
             return "<A"
-        case "8", "8":
-            return "A"
         case "8", "9":
             return ">A"
         case "9", "A":
@@ -273,10 +253,8 @@ def numeric_keypresses_for(fr, to):
             return "<<A"
         case "9", "8":
             return "<A"
-        case "9", "9":
+        case _:
             return "A"
-
-    raise AssertionError("unhandled button presses")
 
 
 def dir_keypresses_for(fr, to):
@@ -291,8 +269,6 @@ def dir_keypresses_for(fr, to):
     # | < | v | > |
     # +---+---+---+
     match fr, to:
-        case "A", "A":
-            return "A"
         case "A", "^":
             return "<A"
         case "A", "<":
@@ -303,8 +279,6 @@ def dir_keypresses_for(fr, to):
             return "vA"
         case "^", "A":
             return ">A"
-        case "^", "^":
-            return "A"
         case "^", "<":
             return "v<A"
         case "^", "v":
@@ -315,8 +289,6 @@ def dir_keypresses_for(fr, to):
             return ">>^A"
         case "<", "^":
             return ">^A"
-        case "<", "<":
-            return "A"
         case "<", "v":
             return ">A"
         case "<", ">":
@@ -327,8 +299,6 @@ def dir_keypresses_for(fr, to):
             return "^A"
         case "v", "<":
             return "<A"
-        case "v", "v":
-            return "A"
         case "v", ">":
             return ">A"
         case ">", "A":
@@ -339,10 +309,8 @@ def dir_keypresses_for(fr, to):
             return "<<A"
         case ">", "v":
             return "<A"
-        case ">", ">":
+        case _:
             return "A"
-
-    raise AssertionError("unhandled button presses")
 
 
 def compute_fewest_button_presses(code, dir_keypad_count):
@@ -355,25 +323,21 @@ def compute_fewest_button_presses(code, dir_keypad_count):
     # in the future).
 
     @functools.cache
-    def fewest_dir_keypad_presses(to_press, depth):
+    def fewest_keypad_presses(to_press, depth, keypresses_func):
         if depth == 0:
             return len(to_press)
 
         fewest_presses = 0
         current = "A"
         for target in to_press:
-            presses = dir_keypresses_for(current, target)
+            presses = keypresses_func(current, target)
             current = target
-            fewest_presses += fewest_dir_keypad_presses(presses, depth - 1)
+            fewest_presses += fewest_keypad_presses(
+                presses, depth - 1, dir_keypresses_for
+            )
         return fewest_presses
 
-    fewest_presses = 0
-    current = "A"
-    for target in code:
-        presses = numeric_keypresses_for(current, target)
-        current = target
-        fewest_presses += fewest_dir_keypad_presses(presses, dir_keypad_count)
-    return fewest_presses
+    return fewest_keypad_presses(code, dir_keypad_count, numeric_keypresses_for)
 
 
 def compute_complexity_of_fewest_button_presses(code, dir_keypad_count):
@@ -381,7 +345,7 @@ def compute_complexity_of_fewest_button_presses(code, dir_keypad_count):
     return presses * int(code.rstrip("A"))
 
 
-def run_program(input, dir_keypad_count=25):
+def run_program(input, dir_keypad_count=25 + 1):
     codes = parse_input(input)
     return sum(
         compute_complexity_of_fewest_button_presses(code, dir_keypad_count)
@@ -396,8 +360,8 @@ if __name__ == "__main__":
 
 class Tests(unittest.TestCase):
     def test_program_returns_correct_result_for_example_input(self):
-        self.assertEqual(run_program("029A", 2), 1972)
-        self.assertEqual(run_program("980A", 2), 58800)
-        self.assertEqual(run_program("179A", 2), 12172)
-        self.assertEqual(run_program("456A", 2), 29184)
-        self.assertEqual(run_program("379A", 2), 24256)
+        self.assertEqual(run_program("029A", 2 + 1), 1972)
+        self.assertEqual(run_program("980A", 2 + 1), 58800)
+        self.assertEqual(run_program("179A", 2 + 1), 12172)
+        self.assertEqual(run_program("456A", 2 + 1), 29184)
+        self.assertEqual(run_program("379A", 2 + 1), 24256)
