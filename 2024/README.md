@@ -28,7 +28,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 18 | [RAM Run](https://adventofcode.com/2024/day/18) | [part 1](18/aoc18_part1.py), [part 2](18/aoc18_part2.py) | 0.1 seconds, 0.1 seconds |
 | 19 | [Linen Layout](https://adventofcode.com/2024/day/19) | [part 1](19/aoc19_part1.py), [part 2](19/aoc19_part2.py) | 0.1 seconds, 0.2 seconds |
 | 20 | [Race Condition](https://adventofcode.com/2024/day/20) | [part 1](20/aoc20_part1.py), [part 2](20/aoc20_part2.py) | 0.6 seconds, 1.7 seconds |
-| 21 | | | |
+| 21 | [Keypad Conundrum](https://adventofcode.com/2124/day/21) | [part 1](21/aoc21_part1.py), [part 2](21/aoc21_part2.py) | 0.1 seconds, 0.1 seconds |
 | 22 | | | |
 | 23 | | | |
 | 24 | | | |
