@@ -3,7 +3,6 @@
 #
 
 import collections
-import itertools
 import textwrap
 import unittest
 
