@@ -15,24 +15,24 @@ def parse_input(input):
     return [int(n) for n in input.strip().split("\n")]
 
 
-def evolve_secret_number(n, turn_count):
-    def mix(m):
-        return n ^ m
+def evolve_secret_number(n, evolution_count):
+    def mix(m, n):
+        return m ^ n
 
     def prune(m):
         return m % 16777216
 
-    for _ in range(turn_count):
-        n = prune(mix(n * 64))
-        n = prune(mix(n // 32))
-        n = prune(mix(n * 2048))
+    for _ in range(evolution_count):
+        n = prune(mix(n, n * 64))
+        n = prune(mix(n, n // 32))
+        n = prune(mix(n, n * 2048))
     return n
 
 
-def run_program(input, turn_count=2000):
+def run_program(input, evolution_count=2000):
     secret_numbers = parse_input(input)
     return sum(
-        evolve_secret_number(secret_number, turn_count)
+        evolve_secret_number(secret_number, evolution_count)
         for secret_number in secret_numbers
     )
 
