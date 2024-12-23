@@ -30,7 +30,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 20 | [Race Condition](https://adventofcode.com/2024/day/20) | [part 1](20/aoc20_part1.py), [part 2](20/aoc20_part2.py) | 0.6 seconds, 1.7 seconds |
 | 21 | [Keypad Conundrum](https://adventofcode.com/2024/day/21) | [part 1](21/aoc21_part1.py), [part 2](21/aoc21_part2.py) | 0.1 seconds, 0.1 seconds |
 | 22 | [Monkey Market](https://adventofcode.com/2024/day/22) | [part 1](22/aoc22_part1.py), [part 2](22/aoc22_part2.py) | 0.4 seconds, 5.1 seconds |
-| 23 | | | |
+| 23 | [LAN Party](https://adventofcode.com/2024/day/23) | [part 1](23/aoc23_part1.py), [part 2](23/aoc23_part2.py) | 1.8 seconds, 0.4 seconds |
 | 24 | | | |
 | 25 | | | |
 
