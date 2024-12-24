@@ -17,14 +17,15 @@ def parse_input(input):
     return [tuple(line.split("-")) for line in input.strip().split("\n")]
 
 
-def find_sets_of_three_connected_computers(connections):
+def find_sets_of_three_connected_computers_with_at_least_one_starting_with_letter(
+    connections, target_letter
+):
     neighbors = collections.defaultdict(set)
     for c1, c2 in connections:
         neighbors[c1].add(c2)
         neighbors[c2].add(c1)
 
-    def are_all_connected(computers):
-        c1, c2, c3 = computers
+    def are_all_connected(c1, c2, c3):
         return (
             c2 in neighbors[c1]
             and c3 in neighbors[c1]
@@ -34,26 +35,28 @@ def find_sets_of_three_connected_computers(connections):
             and c3 in neighbors[c2]
         )
 
-    # Check all combinations of three computers whether they are all connected
-    # together.
-    return list(filter(are_all_connected, itertools.combinations(neighbors, 3)))
-
-
-def get_sets_containing_computer_starting_with(sets, letter):
-    def at_least_one_starts_with_letter(computers):
-        for c in computers:
-            if c.startswith(letter):
-                return True
-        return False
-
-    return list(filter(at_least_one_starts_with_letter, sets))
+    # For each computer whose name starts with the target letter, try all
+    # combinations of its neighbors to see if they form three interconnected
+    # computers.
+    sets = set()
+    for c1, other in [
+        (c, other) for c, other in neighbors.items() if c.startswith(target_letter)
+    ]:
+        for c2, c3 in itertools.combinations(other, 2):
+            if are_all_connected(c1, c2, c3):
+                s = tuple(sorted((c1, c2, c3)))
+                if s not in sets:
+                    sets.add(s)
+    return sets
 
 
 def run_program(input):
     connections = parse_input(input)
-    sets = find_sets_of_three_connected_computers(connections)
-    sets = get_sets_containing_computer_starting_with(sets, letter="t")
-    return len(sets)
+    return len(
+        find_sets_of_three_connected_computers_with_at_least_one_starting_with_letter(
+            connections, target_letter="t"
+        )
+    )
 
 
 if __name__ == "__main__":
