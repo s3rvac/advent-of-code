@@ -13,36 +13,29 @@ def read_input():
 
 
 def parse_input(input):
-    locks = []
-    keys = []
-
-    for raw_object in input.strip().split("\n\n"):
-        object = [list(line) for line in raw_object.split("\n")]
-        if object[0][0] == "#":
-            locks.append(object)
-        else:
-            keys.append(object)
-
-    return locks, keys
+    return [
+        "".join(lines) for lines in input.strip().split("\n\n")
+    ]
 
 
-def count_lock_key_pairs_that_fit_together(locks, keys):
-    def do_they_fit_together(lock, key):
-        for i in range(len(lock)):
-            for j in range(len(lock[i])):
-                if lock[i][j] == "#" and key[i][j] == "#":
-                    return False
+def count_non_overlapping_objects(objects):
+    def are_non_overlapping(o1, o2):
+        for i in range(len(o1)):
+            if o1[i] == "#" and o2[i] == "#":
+                return False
         return True
 
+    locks = filter(lambda o: o[0] == "#", objects)
+    keys = filter(lambda o: o[0] == ".", objects)
     return sum(
-        1 if do_they_fit_together(lock, key) else 0
-        for lock, key in itertools.product(locks, keys)
+        1 if are_non_overlapping(o1, o2) else 0
+        for o1, o2 in itertools.product(locks, keys)
     )
 
 
 def run_program(input):
-    locks, keys = parse_input(input)
-    return count_lock_key_pairs_that_fit_together(locks, keys)
+    objects = parse_input(input)
+    return count_non_overlapping_objects(objects)
 
 
 if __name__ == "__main__":
