@@ -36,3 +36,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 
 \* = tailored to my specific input \
 \*\* = solved by hand by visualising my input; I will write a code solution later
+
+## Main Page
+
+[![Advent of Code 2024 Screenshot](aoc-2024-screenshot.png "Advent of Code 2024 Screenshot")](aoc-2024-screenshot.png)
