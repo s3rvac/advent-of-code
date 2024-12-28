@@ -4,6 +4,8 @@ My solutions to [Advent of Code 2024](https://adventofcode.com/2024/).
 
 They are implemented in [Python](https://www.python.org/) and tested with CPython 3.13 and PyPy 7.3. The runtimes are based on the faster of the two Python interpreters.
 
+If you understand Czech, you can read about my experience [here](https://cs-blog.petrzemek.net/2024-12-28-advent-of-code-2024) :-).
+
 ## Solution Table
 
 | Day | Puzzle | Solutions | Runtimes |
