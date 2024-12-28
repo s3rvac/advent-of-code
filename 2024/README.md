@@ -31,11 +31,10 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 21 | [Keypad Conundrum](https://adventofcode.com/2024/day/21) | [part 1](21/aoc21_part1.py), [part 2](21/aoc21_part2.py) | 0.1 seconds, 0.1 seconds |
 | 22 | [Monkey Market](https://adventofcode.com/2024/day/22) | [part 1](22/aoc22_part1.py), [part 2](22/aoc22_part2.py) | 0.4 seconds, 5.1 seconds |
 | 23 | [LAN Party](https://adventofcode.com/2024/day/23) | [part 1](23/aoc23_part1.py), [part 2](23/aoc23_part2.py) | 0.1 seconds, 0.1 seconds |
-| 24 | [Crossed Wires](https://adventofcode.com/2024/day/24) | [part 1](24/aoc24_part1.py), part 2** | 0.1 seconds, - |
+| 24 | [Crossed Wires](https://adventofcode.com/2024/day/24) | [part 1](24/aoc24_part1.py), [part 2](24/aoc24_part2.py)* | 0.1 seconds, 0.1 seconds |
 | 25 | [Code Chronicle](https://adventofcode.com/2024/day/25) | [parts 1 & 2](25/aoc25.py) | 0.1 seconds |
 
-\* = tailored to my specific input \
-\*\* = solved by hand by visualising my input; I will write a code solution later
+\* = tailored to my specific input
 
 ## Main Page
 
