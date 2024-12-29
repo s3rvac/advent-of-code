@@ -1,6 +1,9 @@
 #
 # Advent of Code 2023, day 20, part 2
 #
+# WARNING: The solution works for my input but might not be general enough to
+# work for any input!
+#
 
 import collections
 import dataclasses
