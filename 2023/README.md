@@ -12,7 +12,7 @@ Note: When originally working on the puzzles in 2023, I only uploaded solutions 
 | ---- | ---- | ---- | ---- |
 | 1 | [Trebuchet?!](https://adventofcode.com/2023/day/1) | [part 1](01/aoc01_part1.py), [part 2](01/aoc01_part2.py) | 0.1 seconds, 0.1 seconds |
 | 2 | [Cube Conundrum](https://adventofcode.com/2023/day/2) | [part 1](02/aoc02_part1.py), [part 2](02/aoc02_part2.py) | 0.1 seconds, 0.1 seconds |
-| 3 | [Gear Ratios](https://adventofcode.com/2023/day/3) | part 1, [part 2](03/aoc03_part2.py) | -, 0.1 seconds |
+| 3 | [Gear Ratios](https://adventofcode.com/2023/day/3) | [part 1](03/aoc03_part1.py), [part 2](03/aoc03_part2.py) | 0.1 seconds, 0.1 seconds |
 | 4 | [Scratchcards](https://adventofcode.com/2023/day/4) | part 1, [part 2](04/aoc04_part2.py) | -, 0.06 seconds |
 | 5 | [If You Give A Seed A Fertilizer](https://adventofcode.com/2023/day/5) | part 1, [part 2](05/aoc05_part2.py) | -, 17 minutes |
 | 6 | [Wait For It](https://adventofcode.com/2023/day/6) | part 1, [part 2](06/aoc06_part2.py) | -, 0.58 seconds |
