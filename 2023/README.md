@@ -6,6 +6,8 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 
 ## Solution Table
 
+Note: When originally working on the puzzles in 2023, I only uploaded solutions to the second parts. I have been retrospectively adding solutions to the first parts, but so far, the solutions are not fully complete.
+
 | Day | Puzzle | Solutions | Runtimes |
 | ---- | ---- | ---- | ---- |
 | 1 | [Trebuchet?!](https://adventofcode.com/2023/day/1) | [part 1](01/aoc91_part1.py), [part 2](01/aoc91_part2.py) | 0.1 seconds, 0.1 seconds |
