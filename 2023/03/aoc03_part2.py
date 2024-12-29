@@ -7,6 +7,18 @@ import textwrap
 import unittest
 
 
+ADJACENT_DIRECTIONS = [
+    (-1, -1),
+    (-1, 0),
+    (-1, +1),
+    (0, -1),
+    (0, +1),
+    (+1, -1),
+    (+1, 0),
+    (+1, +1),
+]
+
+
 def read_input():
     with open("input", encoding="utf-8") as f:
         return f.read()
@@ -28,19 +40,8 @@ def get_gear_ratios_in_engine(engine):
 
 
 def get_part_numbers_adjacent_to_position(engine, i, j):
-    adjacent_directions = [
-        (-1, -1),
-        (-1, 0),
-        (-1, +1),
-        (0, -1),
-        (0, +1),
-        (+1, -1),
-        (+1, 0),
-        (+1, +1),
-    ]
-
     part_numbers = set()
-    for ix, jx in adjacent_directions:
+    for ix, jx in ADJACENT_DIRECTIONS:
         if engine[i + ix][j + jx].isdigit():
             part_numbers.add(get_number_on_position(engine, i + ix, j + jx))
     return list(part_numbers)
@@ -50,14 +51,14 @@ def get_number_on_position(engine, i, j):
     while engine[i][j].isdigit():
         j -= 1
 
-    m = re.fullmatch(r"(\d+).*", engine[i][j + 1 :])
+    m = re.match(r"^(\d+)", engine[i][j + 1 :])
+    assert m is not None
     return int(m.group(1))
 
 
 def run_program(input):
     engine = parse_input(input)
-    gear_ratios = get_gear_ratios_in_engine(engine)
-    return sum(gear_ratios)
+    return sum(get_gear_ratios_in_engine(engine))
 
 
 if __name__ == "__main__":
