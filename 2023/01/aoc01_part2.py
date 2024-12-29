@@ -12,18 +12,18 @@ def read_input():
 
 
 def parse_input(input):
-    return [line.strip() for line in input.strip().split("\n")]
+    return list(input.strip().split("\n"))
 
 
-def compute_calibration_values(input):
-    return [compute_calibration_value(line) for line in input]
+def compute_calibration_values(lines):
+    return list(map(compute_calibration_value, lines))
 
 
 def compute_calibration_value(line):
     first_digit = None
     last_digit = None
 
-    for i in range(0, len(line)):
+    for i in range(len(line)):
         c = get_digit_on_position(line, i)
         if c.isdigit():
             if first_digit is None:
@@ -31,6 +31,7 @@ def compute_calibration_value(line):
             else:
                 last_digit = c
 
+    assert first_digit is not None and last_digit is not None
     return int(first_digit + last_digit)
 
 
@@ -55,9 +56,8 @@ def get_digit_on_position(line, i):
 
 
 def run_program(input):
-    input = parse_input(input)
-    calibration_values = compute_calibration_values(input)
-    return sum(calibration_values)
+    lines = parse_input(input)
+    return sum(compute_calibration_values(lines))
 
 
 if __name__ == "__main__":
