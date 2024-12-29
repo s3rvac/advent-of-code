@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 15
+# Advent of Code 2023, day 15, part 2
 #
 
 import re
@@ -8,17 +8,17 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return input.strip('\n').split(',')
+    return input.strip("\n").split(",")
 
 
 def do_hashmap_procedure(initialization_sequence):
     def parse_step(step):
-        m = re.fullmatch(r'([a-z]+)([-=])(\d?)', step)
+        m = re.fullmatch(r"([a-z]+)([-=])(\d?)", step)
         label = m.group(1)
         op = m.group(2)
         focal_length = int(m.group(3)) if m.group(3) else 0
@@ -30,7 +30,7 @@ def do_hashmap_procedure(initialization_sequence):
         op, label, focal_length = parse_step(step)
         box_id = hash_string(label)
         box = boxes[box_id]
-        if op == '=':
+        if op == "=":
             new_lens = (label, focal_length)
             for i in range(len(box)):
                 if box[i][0] == label:
@@ -70,7 +70,7 @@ def run_program(input):
     return get_focusing_power(boxes)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

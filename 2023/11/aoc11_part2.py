@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 11
+# Advent of Code 2023, day 11, part 2
 #
 
 import itertools
@@ -8,12 +8,12 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [list(line) for line in input.strip().split('\n')]
+    return [list(line) for line in input.strip().split("\n")]
 
 
 def get_shortest_paths_between_all_galaxies(universe):
@@ -30,7 +30,7 @@ def get_coordinates_of_all_galaxies(universe):
     coordinates = []
     for x, row in enumerate(universe):
         for y, c in enumerate(row):
-            if c == '#':
+            if c == "#":
                 coordinates.append(
                     get_galaxy_coordinates_in_expanded_universe(
                         rows_to_expand, columns_to_expand, x, y
@@ -40,19 +40,19 @@ def get_coordinates_of_all_galaxies(universe):
 
 
 def get_rows_and_columns_to_expand(universe):
-    rows_to_expand = [
-        i for i, row in enumerate(universe) if row.count('#') == 0
-    ]
+    rows_to_expand = [i for i, row in enumerate(universe) if row.count("#") == 0]
 
     all_columns = [[row[i] for row in universe] for i in range(len(universe[0]))]
     columns_to_expand = [
-        i for i, column in enumerate(all_columns) if column.count('#') == 0
+        i for i, column in enumerate(all_columns) if column.count("#") == 0
     ]
 
     return rows_to_expand, columns_to_expand
 
 
-def get_galaxy_coordinates_in_expanded_universe(rows_to_expand, columns_to_expand, x, y):
+def get_galaxy_coordinates_in_expanded_universe(
+    rows_to_expand, columns_to_expand, x, y
+):
     expansion_factor = 1_000_000
 
     expanded_x = 0
@@ -79,7 +79,7 @@ def run_program(input):
     return sum(shortest_paths)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

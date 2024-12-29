@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 10
+# Advent of Code 2023, day 10, part 2
 #
 
 import copy
@@ -8,17 +8,17 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [list(line) for line in input.strip().split('\n')]
+    return [list(line) for line in input.strip().split("\n")]
 
 
 def pretty_print_grid(grid):
     for line in grid:
-        print(''.join(line))
+        print("".join(line))
     print()
 
 
@@ -50,7 +50,7 @@ def get_number_of_tiles_enclosed_by_loop(grid):
 def find_start_position(grid):
     for i, line in enumerate(grid):
         for j, pipe in enumerate(line):
-            if pipe == 'S':
+            if pipe == "S":
                 return i, j
 
 
@@ -60,18 +60,18 @@ def replace_start_position_with_pipe(start_position, grid):
     new_grid = copy.deepcopy(grid)
 
     i, j = start_position
-    if grid[i - 1][j] in ['|', '7', 'F'] and grid[i + 1][j] in ['|', 'L', 'J']:
-        new_grid[i][j] = '|'
-    elif grid[i][j - 1] in ['-', 'L', 'F'] and grid[i][j + 1] in ['-', 'J', '7']:
-        new_grid[i][j] = '-'
-    elif grid[i - 1][j] in ['|', '7', 'F'] and grid[i][j + 1] in ['-', 'J', '7']:
-        new_grid[i][j] = 'L'
-    elif grid[i - 1][j] in ['|', '7', 'F'] and grid[i][j - 1] in ['-', 'L', 'F']:
-        new_grid[i][j] = 'J'
-    elif grid[i][j - 1] in ['-', 'L', 'F'] and grid[i + 1][j] in ['|', 'L', 'J']:
-        new_grid[i][j] = '7'
+    if grid[i - 1][j] in ["|", "7", "F"] and grid[i + 1][j] in ["|", "L", "J"]:
+        new_grid[i][j] = "|"
+    elif grid[i][j - 1] in ["-", "L", "F"] and grid[i][j + 1] in ["-", "J", "7"]:
+        new_grid[i][j] = "-"
+    elif grid[i - 1][j] in ["|", "7", "F"] and grid[i][j + 1] in ["-", "J", "7"]:
+        new_grid[i][j] = "L"
+    elif grid[i - 1][j] in ["|", "7", "F"] and grid[i][j - 1] in ["-", "L", "F"]:
+        new_grid[i][j] = "J"
+    elif grid[i][j - 1] in ["-", "L", "F"] and grid[i + 1][j] in ["|", "L", "J"]:
+        new_grid[i][j] = "7"
     else:
-        new_grid[i][j] = 'F'
+        new_grid[i][j] = "F"
 
     return new_grid
 
@@ -85,60 +85,60 @@ def expand_grid(start_position, grid):
     for line in grid:
         new_lines = []
         for c in line:
-            if c == '-':
+            if c == "-":
                 new_lines.append(
                     [
-                        ['.', '.', '.'],
-                        ['-', '-', '-'],
-                        ['.', '.', '.'],
+                        [".", ".", "."],
+                        ["-", "-", "-"],
+                        [".", ".", "."],
                     ]
                 )
-            elif c == '|':
+            elif c == "|":
                 new_lines.append(
                     [
-                        ['.', '|', '.'],
-                        ['.', '|', '.'],
-                        ['.', '|', '.'],
+                        [".", "|", "."],
+                        [".", "|", "."],
+                        [".", "|", "."],
                     ]
                 )
-            elif c == 'L':
+            elif c == "L":
                 new_lines.append(
                     [
-                        ['.', '|', '.'],
-                        ['.', 'L', '-'],
-                        ['.', '.', '.'],
+                        [".", "|", "."],
+                        [".", "L", "-"],
+                        [".", ".", "."],
                     ]
                 )
-            elif c == 'J':
+            elif c == "J":
                 new_lines.append(
                     [
-                        ['.', '|', '.'],
-                        ['-', 'J', '.'],
-                        ['.', '.', '.'],
+                        [".", "|", "."],
+                        ["-", "J", "."],
+                        [".", ".", "."],
                     ]
                 )
-            elif c == '7':
+            elif c == "7":
                 new_lines.append(
                     [
-                        ['.', '.', '.'],
-                        ['-', '7', '.'],
-                        ['.', '|', '.'],
+                        [".", ".", "."],
+                        ["-", "7", "."],
+                        [".", "|", "."],
                     ]
                 )
-            elif c == 'F':
+            elif c == "F":
                 new_lines.append(
                     [
-                        ['.', '.', '.'],
-                        ['.', 'F', '-'],
-                        ['.', '|', '.'],
+                        [".", ".", "."],
+                        [".", "F", "-"],
+                        [".", "|", "."],
                     ]
                 )
             else:
                 new_lines.append(
                     [
-                        ['.', '.', '.'],
-                        ['.', '.', '.'],
-                        ['.', '.', '.'],
+                        [".", ".", "."],
+                        [".", ".", "."],
+                        [".", ".", "."],
                     ]
                 )
         for i in [0, 1, 2]:
@@ -161,7 +161,7 @@ def find_and_mark_loop(start_position, grid):
     while positions_to_check:
         current_position = positions_to_check.pop(0)
         visited_positions.add(current_position)
-        new_grid[current_position[0]][current_position[1]] = '#'
+        new_grid[current_position[0]][current_position[1]] = "#"
         for position in get_next_positions(current_position, grid):
             if position not in visited_positions:
                 positions_to_check.append(position)
@@ -174,12 +174,12 @@ def get_next_positions(current_position, grid):
     # positions that connect to the pipe.
     i, j = current_position
     next_positions_for_pipe = {
-        '|': [(i - 1, j), (i + 1, j)],
-        '-': [(i, j - 1), (i, j + 1)],
-        'L': [(i - 1, j), (i, j + 1)],
-        'J': [(i - 1, j), (i, j - 1)],
-        '7': [(i, j - 1), (i + 1, j)],
-        'F': [(i, j + 1), (i + 1, j)],
+        "|": [(i - 1, j), (i + 1, j)],
+        "-": [(i, j - 1), (i, j + 1)],
+        "L": [(i - 1, j), (i, j + 1)],
+        "J": [(i - 1, j), (i, j - 1)],
+        "7": [(i, j - 1), (i + 1, j)],
+        "F": [(i, j + 1), (i + 1, j)],
     }
     return next_positions_for_pipe[grid[i][j]]
 
@@ -191,8 +191,8 @@ def mark_non_loop_tiles(grid):
 
     for i in range(len(grid)):
         for j in range(len(grid[0])):
-            if grid[i][j] != '#':
-                new_grid[i][j] = '.'
+            if grid[i][j] != "#":
+                new_grid[i][j] = "."
 
     return new_grid
 
@@ -205,13 +205,13 @@ def flood_grid(grid):
     positions_to_flood = [(0, 0)]
     while positions_to_flood:
         i, j = positions_to_flood.pop()
-        new_grid[i][j] = ' '
+        new_grid[i][j] = " "
         neighbors = [(i - 1, j), (i, j + 1), (i + 1, j), (i, j - 1)]
         for x, y in neighbors:
             if (
                 0 <= x < len(new_grid)
                 and 0 <= y < len(new_grid[i])
-                and new_grid[x][y] == '.'
+                and new_grid[x][y] == "."
             ):
                 positions_to_flood.append((x, y))
 
@@ -242,13 +242,13 @@ def count_ground_tiles_in_expanded_grid(grid):
                 if (
                     x >= len(marked_grid)
                     or y >= len(marked_grid[i])
-                    or marked_grid[x][y] != '.'
+                    or marked_grid[x][y] != "."
                 ):
                     break
             else:  # nobreak
                 ground_tile_count += 1
                 for x, y in expanded_ground_positions:
-                    marked_grid[x][y] = 'x'
+                    marked_grid[x][y] = "x"
 
     return ground_tile_count
 
@@ -258,7 +258,7 @@ def run_program(input):
     return get_number_of_tiles_enclosed_by_loop(grid)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

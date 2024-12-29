@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 16
+# Advent of Code 2023, day 16, part 2
 #
 
 import dataclasses
@@ -16,12 +16,12 @@ class Beam:
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [list(line) for line in input.strip().split('\n')]
+    return [list(line) for line in input.strip().split("\n")]
 
 
 def count_max_energized_tiles(contraption):
@@ -85,7 +85,7 @@ def is_beam_out_of_bounds(beam, contraption):
 
 def get_next_beams(beam, contraption):
     tile = contraption[beam.pos_x][beam.pos_y]
-    if tile == '.':
+    if tile == ".":
         return [
             Beam(
                 beam.pos_x + beam.dir_x,
@@ -94,7 +94,7 @@ def get_next_beams(beam, contraption):
                 beam.dir_y,
             )
         ]
-    elif tile == '\\':
+    elif tile == "\\":
         if beam.dir_x == 0 and beam.dir_y == +1:
             return [Beam(beam.pos_x + 1, beam.pos_y, +1, 0)]
         elif beam.dir_x == 0 and beam.dir_y == -1:
@@ -103,7 +103,7 @@ def get_next_beams(beam, contraption):
             return [Beam(beam.pos_x, beam.pos_y - 1, 0, -1)]
         elif beam.dir_x == +1 and beam.dir_y == 0:
             return [Beam(beam.pos_x, beam.pos_y + 1, 0, +1)]
-    elif tile == '/':
+    elif tile == "/":
         if beam.dir_x == 0 and beam.dir_y == +1:
             return [Beam(beam.pos_x - 1, beam.pos_y, -1, 0)]
         elif beam.dir_x == 0 and beam.dir_y == -1:
@@ -112,7 +112,7 @@ def get_next_beams(beam, contraption):
             return [Beam(beam.pos_x, beam.pos_y + 1, 0, +1)]
         elif beam.dir_x == +1 and beam.dir_y == 0:
             return [Beam(beam.pos_x, beam.pos_y - 1, 0, -1)]
-    elif tile == '|':
+    elif tile == "|":
         if beam.dir_y == 0:
             return [Beam(beam.pos_x + beam.dir_x, beam.pos_y, beam.dir_x, 0)]
         else:
@@ -120,7 +120,7 @@ def get_next_beams(beam, contraption):
                 Beam(beam.pos_x - 1, beam.pos_y, -1, 0),
                 Beam(beam.pos_x + 1, beam.pos_y, +1, 0),
             ]
-    elif tile == '-':
+    elif tile == "-":
         if beam.dir_x == 0:
             return [Beam(beam.pos_x, beam.pos_y + beam.dir_y, 0, beam.dir_y)]
         else:
@@ -135,7 +135,7 @@ def run_program(input):
     return count_max_energized_tiles(contraption)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

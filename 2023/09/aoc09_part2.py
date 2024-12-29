@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 09
+# Advent of Code 2023, day 09, part 2
 #
 
 import itertools
@@ -8,14 +8,14 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
     histories = []
-    for line in input.strip().split('\n'):
-        histories.append([int(n) for n in line.split(' ')])
+    for line in input.strip().split("\n"):
+        histories.append([int(n) for n in line.split(" ")])
     return histories
 
 
@@ -40,7 +40,7 @@ def run_program(input):
     return sum(previous_values)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

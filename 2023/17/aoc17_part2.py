@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 17
+# Advent of Code 2023, day 17, part 2
 #
 
 import heapq
@@ -8,12 +8,12 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [[int(c) for c in line] for line in input.strip().split('\n')]
+    return [[int(c) for c in line] for line in input.strip().split("\n")]
 
 
 def get_min_heat_loss_when_navigating_crucible(map):
@@ -62,7 +62,7 @@ def run_program(input):
     return get_min_heat_loss_when_navigating_crucible(map)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

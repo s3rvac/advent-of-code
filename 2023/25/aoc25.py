@@ -11,7 +11,7 @@ import networkx
 
 
 def read_input():
-    with open("input.txt", encoding="utf-8") as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 

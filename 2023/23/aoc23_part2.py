@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 23
+# Advent of Code 2023, day 23, part 2
 #
 
 import dataclasses
@@ -20,12 +20,12 @@ class Hike:
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [list(line) for line in input.strip().split('\n')]
+    return [list(line) for line in input.strip().split("\n")]
 
 
 def get_longest_hike_length(map):
@@ -50,7 +50,7 @@ def get_longest_hike_length(map):
                 or i >= len(map)
                 or j < 0
                 or j >= len(map[0])
-                or map[i][j] == '#'
+                or map[i][j] == "#"
                 or (i, j) in hike.visited
             ):
                 continue
@@ -69,7 +69,7 @@ def run_program(input):
     return get_longest_hike_length(map)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

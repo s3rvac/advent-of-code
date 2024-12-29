@@ -7,12 +7,12 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [list(line) for line in input.strip().split('\n')]
+    return [list(line) for line in input.strip().split("\n")]
 
 
 def count_garden_plots_after_steps(map, steps):
@@ -27,7 +27,7 @@ def count_garden_plots_after_steps(map, steps):
                 if (
                     0 <= new_i < len(map)
                     and 0 <= new_j < len(map[new_i])
-                    and map[new_i][new_j] != '#'
+                    and map[new_i][new_j] != "#"
                 ):
                     new_positions.add((new_i, new_j))
         positions = new_positions
@@ -38,9 +38,9 @@ def count_garden_plots_after_steps(map, steps):
 def get_start_position(map):
     for i in range(len(map)):
         for j in range(len(map[i])):
-            if map[i][j] == 'S':
+            if map[i][j] == "S":
                 return i, j
-    raise AssertionError('No start position found')
+    raise AssertionError("No start position found")
 
 
 def run_program(input, steps):
@@ -48,7 +48,7 @@ def run_program(input, steps):
     return count_garden_plots_after_steps(map, steps)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input(), steps=64)
     print(result)
 

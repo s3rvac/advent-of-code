@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 20
+# Advent of Code 2023, day 20, part 2
 #
 
 import collections
@@ -16,7 +16,7 @@ class Module:
 
 
 def read_input():
-    with open("input.txt", encoding="utf-8") as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 

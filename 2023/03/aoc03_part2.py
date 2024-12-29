@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 03
+# Advent of Code 2023, day 03, part 2
 #
 
 import re
@@ -8,19 +8,19 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return list(input.strip().split('\n'))
+    return list(input.strip().split("\n"))
 
 
 def get_gear_ratios_in_engine(engine):
     gear_ratios = []
     for i in range(len(engine)):
         for j in range(len(engine[i])):
-            if engine[i][j] == '*':
+            if engine[i][j] == "*":
                 part_numbers = get_part_numbers_adjacent_to_position(engine, i, j)
                 if len(part_numbers) == 2:
                     gear_ratios.append(part_numbers[0] * part_numbers[1])
@@ -50,7 +50,7 @@ def get_number_on_position(engine, i, j):
     while engine[i][j].isdigit():
         j -= 1
 
-    m = re.fullmatch(r'(\d+).*', engine[i][j + 1 :])
+    m = re.fullmatch(r"(\d+).*", engine[i][j + 1 :])
     return int(m.group(1))
 
 
@@ -60,7 +60,7 @@ def run_program(input):
     return sum(gear_ratios)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

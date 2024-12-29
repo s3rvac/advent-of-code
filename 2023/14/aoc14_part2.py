@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 14
+# Advent of Code 2023, day 14, part 2
 #
 
 import textwrap
@@ -7,12 +7,12 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [list(line) for line in input.strip().split('\n')]
+    return [list(line) for line in input.strip().split("\n")]
 
 
 def cycle_platform_n_times(platform, n):
@@ -20,7 +20,7 @@ def cycle_platform_n_times(platform, n):
     # which the platform configuration repeats itself, and then use this period
     # to dramatically reduce the number of cycles that we need to perform.
     def current_configuration():
-        return ''.join(''.join(row) for row in platform)
+        return "".join("".join(row) for row in platform)
 
     i = 0
 
@@ -64,11 +64,11 @@ def cycle_platform_once(platform):
                     if (
                         0 <= x < len(platform)
                         and 0 <= y < len(platform[i])
-                        and platform[i][j] == 'O'
-                        and platform[x][y] == '.'
+                        and platform[i][j] == "O"
+                        and platform[x][y] == "."
                     ):
-                        platform[x][y] = 'O'
-                        platform[i][j] = '.'
+                        platform[x][y] = "O"
+                        platform[i][j] = "."
                         platform_changed = True
 
     tilt_platform(move_stones_to=lambda i, j: (i - 1, j))  # North
@@ -79,7 +79,7 @@ def cycle_platform_once(platform):
 
 def get_total_load_for_platform(platform):
     return sum(
-        row.count('O') * load_per_rock
+        row.count("O") * load_per_rock
         for row, load_per_rock in zip(platform, range(len(platform), 0, -1))
     )
 
@@ -90,7 +90,7 @@ def run_program(input):
     return get_total_load_for_platform(platform)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 13
+# Advent of Code 2023, day 13, part 2
 #
 
 import textwrap
@@ -7,12 +7,12 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [pattern.split('\n') for pattern in input.strip().split('\n\n')]
+    return [pattern.split("\n") for pattern in input.strip().split("\n\n")]
 
 
 def summarize_patterns(patterns):
@@ -32,7 +32,7 @@ def fix_smudge_and_evaluate_pattern(pattern):
 
 def transpose_pattern(pattern):
     # https://en.wikipedia.org/wiki/Transpose
-    return [''.join(row) for row in zip(*pattern)]
+    return ["".join(row) for row in zip(*pattern)]
 
 
 def fix_smudge_and_evaluate_pattern_horizontally(pattern):
@@ -70,7 +70,7 @@ def run_program(input):
     return summarize_patterns(patterns)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

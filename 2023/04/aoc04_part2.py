@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 04
+# Advent of Code 2023, day 04, part 2
 #
 
 import re
@@ -8,23 +8,23 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [parse_card(line) for line in input.strip().split('\n')]
+    return [parse_card(line) for line in input.strip().split("\n")]
 
 
 def parse_card(line):
     def parse_numbers(raw_numbers):
-        return {int(n) for n in re.split(r'\s+', raw_numbers.strip())}
+        return {int(n) for n in re.split(r"\s+", raw_numbers.strip())}
 
-    m = re.fullmatch(r'Card +(\d+): (.*) \| (.*)', line)
+    m = re.fullmatch(r"Card +(\d+): (.*) \| (.*)", line)
     return {
-        'id': int(m.group(1)),
-        'winning_numbers': parse_numbers(m.group(2)),
-        'own_numbers': parse_numbers(m.group(3)),
+        "id": int(m.group(1)),
+        "winning_numbers": parse_numbers(m.group(2)),
+        "own_numbers": parse_numbers(m.group(3)),
     }
 
 
@@ -32,13 +32,13 @@ def get_total_card_count_for_cards(original_cards):
     card_count_for_id = {id: 1 for id in range(1, len(original_cards) + 1)}
     for card in original_cards:
         matches = get_matching_number_count_for_card(card)
-        for id in range(card['id'] + 1, card['id'] + matches + 1):
-            card_count_for_id[id] += card_count_for_id[card['id']]
+        for id in range(card["id"] + 1, card["id"] + matches + 1):
+            card_count_for_id[id] += card_count_for_id[card["id"]]
     return sum(card_count_for_id.values())
 
 
 def get_matching_number_count_for_card(card):
-    return len(card['own_numbers'] & card['winning_numbers'])
+    return len(card["own_numbers"] & card["winning_numbers"])
 
 
 def run_program(input):
@@ -46,7 +46,7 @@ def run_program(input):
     return get_total_card_count_for_cards(cards)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

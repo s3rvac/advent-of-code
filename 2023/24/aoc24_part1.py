@@ -19,19 +19,19 @@ class Hailstone:
 
     @classmethod
     def from_str(cls, s):
-        position, velocity = s.split(' @ ')
-        px, py, pz = position.split(', ')
-        vx, vy, vz = velocity.split(', ')
+        position, velocity = s.split(" @ ")
+        px, py, pz = position.split(", ")
+        vx, vy, vz = velocity.split(", ")
         return cls(int(px), int(py), int(pz), int(vx), int(vy), int(vz))
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [Hailstone.from_str(line.strip()) for line in input.strip().split('\n')]
+    return [Hailstone.from_str(line.strip()) for line in input.strip().split("\n")]
 
 
 def count_intersections(hailstones, min_xy, max_xy):
@@ -83,7 +83,7 @@ def run_program(input, min_xy, max_xy):
     return count_intersections(hailstones, min_xy, max_xy)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input(), min_xy=200000000000000, max_xy=400000000000000)
     print(result)
 

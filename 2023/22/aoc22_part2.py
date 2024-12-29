@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 22
+# Advent of Code 2023, day 22, part 2
 #
 
 import dataclasses
@@ -52,7 +52,7 @@ class Bricks(list):
 
 
 def read_input():
-    with open("input.txt", encoding="utf-8") as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 

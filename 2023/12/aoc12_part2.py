@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 12
+# Advent of Code 2023, day 12, part 2
 #
 
 import dataclasses
@@ -16,23 +16,23 @@ class SpringRecord:
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
     def parse_spring_record(sr):
-        springs, raw_damanged_springs = sr.split(' ')
-        damaged = tuple(int(n) for n in raw_damanged_springs.split(','))
+        springs, raw_damanged_springs = sr.split(" ")
+        damaged = tuple(int(n) for n in raw_damanged_springs.split(","))
         return SpringRecord(springs, damaged)
 
-    return [parse_spring_record(line) for line in input.strip().split('\n')]
+    return [parse_spring_record(line) for line in input.strip().split("\n")]
 
 
 def unfold_spring_records(spring_records):
     def unfold(spring_record):
         return SpringRecord(
-            springs='?'.join([spring_record.springs] * 5),
+            springs="?".join([spring_record.springs] * 5),
             damaged=spring_record.damaged * 5,
         )
 
@@ -49,18 +49,18 @@ def get_arrangement_count(spring_record):
     @functools.cache
     def get_count(s, d):
         if not d:
-            return 1 if s.count('#') == 0 else 0
+            return 1 if s.count("#") == 0 else 0
         elif not s:
             return 0
-        elif s[0] == '?':
-            return get_count('.' + s[1:], d) + get_count('#' + s[1:], d)
-        elif s[0] == '#':
+        elif s[0] == "?":
+            return get_count("." + s[1:], d) + get_count("#" + s[1:], d)
+        elif s[0] == "#":
             i = 0
             n = d[0]
-            while n > 0 and i < len(s) and s[i] in ('#', '?'):
+            while n > 0 and i < len(s) and s[i] in ("#", "?"):
                 n -= 1
                 i += 1
-            if n == 0 and (i == len(s) or s[i] in ('.', '?')):
+            if n == 0 and (i == len(s) or s[i] in (".", "?")):
                 return get_count(s[i + 1 :], d[1:])
             return 0
         return get_count(s[1:], d)
@@ -77,7 +77,7 @@ def run_program(input):
     return sum(arrangement_counts)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 
@@ -85,29 +85,29 @@ if __name__ == '__main__':
 class Tests(unittest.TestCase):
     def test_get_arrangement_count_returns_correct_result(self):
         SR = SpringRecord
-        self.assertEqual(get_arrangement_count(SR('.', (1,))), 0)
-        self.assertEqual(get_arrangement_count(SR('#', (2,))), 0)
-        self.assertEqual(get_arrangement_count(SR('#.#', (2,))), 0)
-        self.assertEqual(get_arrangement_count(SR('?', (1,))), 1)
-        self.assertEqual(get_arrangement_count(SR('?..', (1,))), 1)
-        self.assertEqual(get_arrangement_count(SR('#', (1,))), 1)
-        self.assertEqual(get_arrangement_count(SR('#.', (1,))), 1)
-        self.assertEqual(get_arrangement_count(SR('#?', (1,))), 1)
-        self.assertEqual(get_arrangement_count(SR('#?.', (1,))), 1)
-        self.assertEqual(get_arrangement_count(SR('#.#', (1, 1))), 1)
-        self.assertEqual(get_arrangement_count(SR('???', (1, 1))), 1)
-        self.assertEqual(get_arrangement_count(SR('??', (1,))), 2)
-        self.assertEqual(get_arrangement_count(SR('?.?', (1,))), 2)
-        self.assertEqual(get_arrangement_count(SR('??.??', (1, 1))), 4)
-        self.assertEqual(get_arrangement_count(SR('????', (1,))), 4)
-        self.assertEqual(get_arrangement_count(SR('????', (1, 1))), 3)
-        self.assertEqual(get_arrangement_count(SR('???.###', (1, 1, 3))), 1)
-        self.assertEqual(get_arrangement_count(SR('.??..??...?##.', (1, 1, 3))), 4)
-        self.assertEqual(get_arrangement_count(SR('?#?#?#?#?#?#?#?', (1, 3, 1, 6))), 1)
-        self.assertEqual(get_arrangement_count(SR('????.#...#...', (4, 1, 1))), 1)
-        self.assertEqual(get_arrangement_count(SR('????.######..#####.', (1, 6, 5))), 4)
-        self.assertEqual(get_arrangement_count(SR('???????', (2, 1))), 10)
-        self.assertEqual(get_arrangement_count(SR('?###????????', (3, 2, 1))), 10)
+        self.assertEqual(get_arrangement_count(SR(".", (1,))), 0)
+        self.assertEqual(get_arrangement_count(SR("#", (2,))), 0)
+        self.assertEqual(get_arrangement_count(SR("#.#", (2,))), 0)
+        self.assertEqual(get_arrangement_count(SR("?", (1,))), 1)
+        self.assertEqual(get_arrangement_count(SR("?..", (1,))), 1)
+        self.assertEqual(get_arrangement_count(SR("#", (1,))), 1)
+        self.assertEqual(get_arrangement_count(SR("#.", (1,))), 1)
+        self.assertEqual(get_arrangement_count(SR("#?", (1,))), 1)
+        self.assertEqual(get_arrangement_count(SR("#?.", (1,))), 1)
+        self.assertEqual(get_arrangement_count(SR("#.#", (1, 1))), 1)
+        self.assertEqual(get_arrangement_count(SR("???", (1, 1))), 1)
+        self.assertEqual(get_arrangement_count(SR("??", (1,))), 2)
+        self.assertEqual(get_arrangement_count(SR("?.?", (1,))), 2)
+        self.assertEqual(get_arrangement_count(SR("??.??", (1, 1))), 4)
+        self.assertEqual(get_arrangement_count(SR("????", (1,))), 4)
+        self.assertEqual(get_arrangement_count(SR("????", (1, 1))), 3)
+        self.assertEqual(get_arrangement_count(SR("???.###", (1, 1, 3))), 1)
+        self.assertEqual(get_arrangement_count(SR(".??..??...?##.", (1, 1, 3))), 4)
+        self.assertEqual(get_arrangement_count(SR("?#?#?#?#?#?#?#?", (1, 3, 1, 6))), 1)
+        self.assertEqual(get_arrangement_count(SR("????.#...#...", (4, 1, 1))), 1)
+        self.assertEqual(get_arrangement_count(SR("????.######..#####.", (1, 6, 5))), 4)
+        self.assertEqual(get_arrangement_count(SR("???????", (2, 1))), 10)
+        self.assertEqual(get_arrangement_count(SR("?###????????", (3, 2, 1))), 10)
 
     def test_program_returns_correct_result_for_example_input(self):
         input = textwrap.dedent(

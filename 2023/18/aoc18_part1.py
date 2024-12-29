@@ -15,7 +15,7 @@ class DigInstruction:
 
 
 def read_input():
-    with open("input.txt", encoding="utf-8") as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
@@ -39,18 +39,18 @@ def dig_according_to_plan(dig_plan):
         new_map = map
         if i == -1:
             i += 1
-            new_map = [list('.' * len(map[0]))] + map
+            new_map = [list("." * len(map[0]))] + map
         elif i == len(map):
-            new_map = map + [list('.' * len(map[0]))]
+            new_map = map + [list("." * len(map[0]))]
         elif j == -1:
             j += 1
             new_map = []
             for row in map:
-                new_map.append(['.'] + row)
+                new_map.append(["."] + row)
         elif j == len(map[0]):
             new_map = []
             for row in map:
-                new_map.append(row + ['.'])
+                new_map.append(row + ["."])
         map = new_map
 
     map = [["#"]]
@@ -66,7 +66,7 @@ def dig_according_to_plan(dig_plan):
             elif instr.direction == "D":
                 i += 1
             extend_map_with_terrain_if_needed()
-            map[i][j] = '#'
+            map[i][j] = "#"
 
     return map
 
@@ -74,8 +74,8 @@ def dig_according_to_plan(dig_plan):
 def dig_interior(map):
     for row in map:
         for i in range(len(row)):
-            if row[i] == '.':
-                row[i] = '?'
+            if row[i] == ".":
+                row[i] = "?"
 
     queue = set()
     visited = set()
@@ -90,8 +90,8 @@ def dig_interior(map):
         if (i, j) in visited or i < 0 or j < 0 or i >= len(map) or j >= len(map[0]):
             continue
         visited.add((i, j))
-        if map[i][j] == '?':
-            map[i][j] = '.'
+        if map[i][j] == "?":
+            map[i][j] = "."
             queue.add((i - 1, j))
             queue.add((i, j - 1))
             queue.add((i, j + 1))
@@ -99,8 +99,8 @@ def dig_interior(map):
 
     for row in map:
         for i in range(len(row)):
-            if row[i] == '?':
-                row[i] = '#'
+            if row[i] == "?":
+                row[i] = "#"
 
     return map
 
@@ -108,7 +108,7 @@ def dig_interior(map):
 def count_dug_out_cells(map):
     count = 0
     for row in map:
-        count += row.count('#')
+        count += row.count("#")
     return count
 
 

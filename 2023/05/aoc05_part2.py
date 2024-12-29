@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 05
+# Advent of Code 2023, day 05, part 2
 #
 # Note: Although the script is slow, it does the job.
 #
@@ -10,17 +10,17 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
     # Append an empty line to simplify the loop below (it will always end with
     # appending the map):
-    lines = input.strip().split('\n') + ['']
+    lines = input.strip().split("\n") + [""]
 
-    m = re.fullmatch('seeds: (.+)', lines[0])
-    raw_seeds = m.group(1).split(' ')
+    m = re.fullmatch("seeds: (.+)", lines[0])
+    raw_seeds = m.group(1).split(" ")
     seed_ranges = [
         (int(start), int(length))
         for start, length in zip(raw_seeds[::2], raw_seeds[1::2])
@@ -28,21 +28,21 @@ def parse_input(input):
 
     maps = []
     for line in lines[2:]:
-        if m := re.fullmatch(r'(.+)-to-(.+) map:', line):
+        if m := re.fullmatch(r"(.+)-to-(.+) map:", line):
             map = {
-                'from': m.group(1),
-                'to': m.group(2),
-                'ranges': [],
+                "from": m.group(1),
+                "to": m.group(2),
+                "ranges": [],
             }
         elif line:
-            dst, src, range = line.split(' ')
-            map['ranges'].append((int(dst), int(src), int(range)))
+            dst, src, range = line.split(" ")
+            map["ranges"].append((int(dst), int(src), int(range)))
         else:
             maps.append(map)
 
     return {
-        'seed_ranges': seed_ranges,
-        'maps': maps,
+        "seed_ranges": seed_ranges,
+        "maps": maps,
     }
 
 
@@ -50,8 +50,8 @@ def get_min_location_from_alamac(almanac):
     min_location = None
 
     for n in gen_seeds_from_almanac(almanac):
-        for map in almanac['maps']:
-            for dst, src, range in map['ranges']:
+        for map in almanac["maps"]:
+            for dst, src, range in map["ranges"]:
                 if src <= n < src + range:
                     n = dst + n - src
                     break
@@ -62,7 +62,7 @@ def get_min_location_from_alamac(almanac):
 
 
 def gen_seeds_from_almanac(almanac):
-    for start, length in almanac['seed_ranges']:
+    for start, length in almanac["seed_ranges"]:
         for seed in range(start, start + length):
             yield seed
 
@@ -72,7 +72,7 @@ def run_program(input):
     return get_min_location_from_alamac(almanac)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

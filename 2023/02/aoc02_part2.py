@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 02
+# Advent of Code 2023, day 02, part 2
 #
 
 import re
@@ -8,29 +8,29 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
     def parse_line(line):
-        m = re.fullmatch(r'Game (\d+): (.+)', line)
+        m = re.fullmatch(r"Game (\d+): (.+)", line)
         return {
-            'id': int(m.group(1)),
-            'sets': parse_sets(m.group(2)),
+            "id": int(m.group(1)),
+            "sets": parse_sets(m.group(2)),
         }
 
     def parse_sets(raw_sets):
-        return [parse_set(raw_set) for raw_set in raw_sets.split('; ')]
+        return [parse_set(raw_set) for raw_set in raw_sets.split("; ")]
 
     def parse_set(raw_set):
         set = []
-        for part in raw_set.split(', '):
-            m = re.fullmatch(r'(\d+) (.+)', part)
+        for part in raw_set.split(", "):
+            m = re.fullmatch(r"(\d+) (.+)", part)
             set.append((m.group(2), int(m.group(1))))
         return set
 
-    return [parse_line(line) for line in input.strip().split('\n')]
+    return [parse_line(line) for line in input.strip().split("\n")]
 
 
 def get_power_of_each_game(games):
@@ -39,16 +39,16 @@ def get_power_of_each_game(games):
 
 def get_power_of_game(game):
     min_cubes = {
-        'red': 0,
-        'green': 0,
-        'blue': 0,
+        "red": 0,
+        "green": 0,
+        "blue": 0,
     }
-    for set in game['sets']:
+    for set in game["sets"]:
         for color, count in set:
             if min_cubes[color] < count:
                 min_cubes[color] = count
 
-    return min_cubes['red'] * min_cubes['green'] * min_cubes['blue']
+    return min_cubes["red"] * min_cubes["green"] * min_cubes["blue"]
 
 
 def run_program(input):
@@ -57,7 +57,7 @@ def run_program(input):
     return sum(powers)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

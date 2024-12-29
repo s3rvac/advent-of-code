@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 06
+# Advent of Code 2023, day 06, part 2
 #
 
 import re
@@ -8,18 +8,18 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    lines = input.strip().split('\n')
+    lines = input.strip().split("\n")
 
-    m = re.fullmatch(r'Time:\s+(.+)', lines[0])
-    time = int(re.sub(r'\s+', '', m.group(1)))
+    m = re.fullmatch(r"Time:\s+(.+)", lines[0])
+    time = int(re.sub(r"\s+", "", m.group(1)))
 
-    m = re.fullmatch(r'Distance:\s+(.+)', lines[1])
-    record_distance = int(re.sub(r'\s+', '', m.group(1)))
+    m = re.fullmatch(r"Distance:\s+(.+)", lines[1])
+    record_distance = int(re.sub(r"\s+", "", m.group(1)))
 
     return time, record_distance
 
@@ -38,7 +38,7 @@ def run_program(input):
     return compute_number_of_ways_to_beat_record(time, record_distance)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 

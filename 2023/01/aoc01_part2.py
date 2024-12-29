@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 01
+# Advent of Code 2023, day 01, part 2
 #
 
 import textwrap
@@ -7,12 +7,12 @@ import unittest
 
 
 def read_input():
-    with open('input.txt', encoding='utf-8') as f:
+    with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
-    return [line.strip() for line in input.strip().split('\n')]
+    return [line.strip() for line in input.strip().split("\n")]
 
 
 def compute_calibration_values(input):
@@ -36,15 +36,15 @@ def compute_calibration_value(line):
 
 def get_digit_on_position(line, i):
     map = {
-        'one': '1',
-        'two': '2',
-        'three': '3',
-        'four': '4',
-        'five': '5',
-        'six': '6',
-        'seven': '7',
-        'eight': '8',
-        'nine': '9',
+        "one": "1",
+        "two": "2",
+        "three": "3",
+        "four": "4",
+        "five": "5",
+        "six": "6",
+        "seven": "7",
+        "eight": "8",
+        "nine": "9",
     }
 
     for name, digit in map.items():
@@ -60,7 +60,7 @@ def run_program(input):
     return sum(calibration_values)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     result = run_program(read_input())
     print(result)
 
