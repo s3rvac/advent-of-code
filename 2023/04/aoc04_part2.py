@@ -21,6 +21,7 @@ def parse_card(line):
         return {int(n) for n in re.split(r"\s+", raw_numbers.strip())}
 
     m = re.fullmatch(r"Card +(\d+): (.*) \| (.*)", line)
+    assert m is not None
     return {
         "id": int(m.group(1)),
         "winning_numbers": parse_numbers(m.group(2)),
