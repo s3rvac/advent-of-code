@@ -25,13 +25,13 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 15 | [Lens Library](https://adventofcode.com/2023/day/15) | part 1, [part 2](15/aoc15_part2.py) | -, 0.07 seconds |
 | 16 | [The Floor Will Be Lava](https://adventofcode.com/2023/day/16) | part 1, [part 2](16/aoc16_part2.py) | -, 1.2 seconds |
 | 17 | [Clumsy Crucible](https://adventofcode.com/2023/day/17) | part 1, [part 2](17/aoc17_part2.py) | -, 5.8 seconds |
-| 18 | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18) | part 1, [part 2](18/aoc18_part2.py) | -, 0.3 seconds |
+| 18 | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18) | [part 1](18/aoc18_part1.py), part 2 | 0.3 seconds, - |
 | 19 | [Aplenty](https://adventofcode.com/2023/day/19) | part 1, [part 2](19/aoc19_part2.py) | -, 0.08 seconds |
 | 20 | [Pulse Propagation](https://adventofcode.com/2023/day/20) | part 1, [part 2](20/aoc20_part2.py)* | -, 0.3 seconds |
-| 21 | [Step Counter](https://adventofcode.com/2023/day/21) | part 1, [part 2](21/aoc21_part2.py) | -, 0.2 seconds |
+| 21 | [Step Counter](https://adventofcode.com/2023/day/21) | [part 1](21/aoc21_part1.py), part 2 | 0.2 seconds, - |
 | 22 | [Sand Slabs](https://adventofcode.com/2023/day/22) | part 1, [part 2](22/aoc22_part2.py) | -, 37 seconds |
 | 23 | [A Long Walk](https://adventofcode.com/2023/day/23) | part 1, [part 2](23/aoc23_part2.py) | -, 3 days |
-| 24 | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24) | part 1, [part 2](24/aoc24_part2.py) | -, 0.24 seconds |
+| 24 | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24) | [part 1](24/aoc24_part1.py), part 2 | 0.24 seconds, - |
 | 25 | [Snowverload](https://adventofcode.com/2023/day/25) | [parts 1 & 2](25/aoc25.py) | 6.5 seconds |
 
 \* = tailored to my specific input
