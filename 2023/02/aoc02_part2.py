@@ -15,6 +15,7 @@ def read_input():
 def parse_input(input):
     def parse_line(line):
         m = re.fullmatch(r"Game (\d+): (.+)", line)
+        assert m is not None
         return {
             "id": int(m.group(1)),
             "sets": parse_sets(m.group(2)),
@@ -27,6 +28,7 @@ def parse_input(input):
         set = []
         for part in raw_set.split(", "):
             m = re.fullmatch(r"(\d+) (.+)", part)
+            assert m is not None
             set.append((m.group(2), int(m.group(1))))
         return set
 
@@ -34,7 +36,7 @@ def parse_input(input):
 
 
 def get_power_of_each_game(games):
-    return [get_power_of_game(game) for game in games]
+    return map(get_power_of_game, games)
 
 
 def get_power_of_game(game):
@@ -45,16 +47,14 @@ def get_power_of_game(game):
     }
     for set in game["sets"]:
         for color, count in set:
-            if min_cubes[color] < count:
-                min_cubes[color] = count
+            min_cubes[color] = max(min_cubes[color], count)
 
     return min_cubes["red"] * min_cubes["green"] * min_cubes["blue"]
 
 
 def run_program(input):
     games = parse_input(input)
-    powers = get_power_of_each_game(games)
-    return sum(powers)
+    return sum(get_power_of_each_game(games))
 
 
 if __name__ == "__main__":
