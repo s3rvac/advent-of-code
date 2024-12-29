@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 24 (part 1 only)
+# Advent of Code 2023, day 24, part 1
 #
 
 import dataclasses

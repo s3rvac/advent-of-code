@@ -1,5 +1,5 @@
 #
-# Advent of Code 2023, day 18 (part 1 only)
+# Advent of Code 2023, day 18, part 1
 #
 
 import textwrap
