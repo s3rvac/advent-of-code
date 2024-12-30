@@ -2,6 +2,7 @@
 # Advent of Code 2023, day 06, part 2
 #
 
+import math
 import re
 import textwrap
 import unittest
@@ -20,12 +21,25 @@ def parse_input(input):
 
 
 def compute_number_of_ways_to_beat_record(time, record_distance):
-    way_count = 0
-    for n in range(1, time):
-        distance = n * (time - n)
-        if distance > record_distance:
-            way_count += 1
-    return way_count
+    # The input time is too big in the second part, so instead of checking all
+    # the possibilities, just solve an equation that gives the answers. In this
+    # case, we are trying to find all `n` that satisfy
+    #
+    #    n * (time - n) > record_distance
+    #
+    # After rewriting the equation, we get
+    #
+    #    n * (time - n) - record_distance == 0
+    #    n * time - n**2 - record_distance == 0
+    #    -n**2 + n * time - record_distance == 0
+    #
+    # The equation can be solved via the quadratic formula, which gives us the
+    # lower and upper bounds for when we get exactly the record distance.
+    # Anything in between counts as a way of beating the record.
+    discriminant = time**2 - 4 * record_distance
+    n1 = (-time + math.isqrt(discriminant)) / -2
+    n2 = (-time - math.isqrt(discriminant)) / -2
+    return math.floor(n2) - math.ceil(n1) + 1
 
 
 def run_program(input):
