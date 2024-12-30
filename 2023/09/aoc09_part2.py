@@ -13,14 +13,7 @@ def read_input():
 
 
 def parse_input(input):
-    histories = []
-    for line in input.strip().split("\n"):
-        histories.append([int(n) for n in line.split(" ")])
-    return histories
-
-
-def find_previous_value_for_each_history(histories):
-    return [find_previous_value_for_history(history) for history in histories]
+    return [[int(n) for n in line.split(" ")] for line in input.strip().split("\n")]
 
 
 def find_previous_value_for_history(history):
@@ -36,8 +29,7 @@ def find_previous_value_for_history(history):
 
 def run_program(input):
     histories = parse_input(input)
-    previous_values = find_previous_value_for_each_history(histories)
-    return sum(previous_values)
+    return sum(map(find_previous_value_for_history, histories))
 
 
 if __name__ == "__main__":
