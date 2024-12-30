@@ -2,6 +2,7 @@
 # Advent of Code 2023, day 02, part 2
 #
 
+import math
 import re
 import textwrap
 import unittest
@@ -40,16 +41,12 @@ def get_power_of_each_game(games):
 
 
 def get_power_of_game(game):
-    min_cubes = {
-        "red": 0,
-        "green": 0,
-        "blue": 0,
-    }
+    min_cubes = {"red": 0, "green": 0, "blue": 0}
     for set in game["sets"]:
         for color, count in set:
             min_cubes[color] = max(min_cubes[color], count)
 
-    return min_cubes["red"] * min_cubes["green"] * min_cubes["blue"]
+    return math.prod(min_cubes.values())
 
 
 def run_program(input):

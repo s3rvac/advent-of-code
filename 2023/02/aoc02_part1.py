@@ -45,11 +45,7 @@ def get_ids_of_possible_games(games):
 
 def is_possible_game(game):
     for set in game["sets"]:
-        available_cubes = {
-            "red": 12,
-            "green": 13,
-            "blue": 14,
-        }
+        available_cubes = {"red": 12, "green": 13, "blue": 14}
         for color, count in set:
             available_cubes[color] -= count
         if min(available_cubes.values()) < 0:
