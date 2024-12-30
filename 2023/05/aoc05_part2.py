@@ -20,6 +20,7 @@ def parse_input(input):
     lines = input.strip().split("\n") + [""]
 
     m = re.fullmatch("seeds: (.+)", lines[0])
+    assert m is not None
     raw_seeds = m.group(1).split(" ")
     seed_ranges = [
         (int(start), int(length))
@@ -47,24 +48,51 @@ def parse_input(input):
 
 
 def get_min_location_from_alamac(almanac):
-    min_location = None
+    # We need to work with whole ranges as working with standalone seeds would
+    # be too slow and inefficient.
+    def map_ranges(ranges, mappings):
+        remaining = ranges
+        mapped = []
+        for dst, src, length in mappings:
+            new_remaining = []
+            for start, end in remaining:
+                # No overlap:
+                # [....]
+                #        [....]
+                # or
+                #        [....]
+                # [....]
+                if src + length < start or src > end:
+                    new_remaining.append((start, end))
+                # Overlap of the whole range:
+                # [...........]
+                #    [.....]
+                elif src <= start < src + length and src <= end < src + length:
+                    mapped.append((dst + start - src, dst + end - src))
+                # Overlap in the beginning of the range:
+                #    [......]
+                # [.....]
+                elif src <= end < src + length:
+                    mapped.append((dst, dst + end - src))
+                    new_remaining.append((start, src - 1))
+                # Overlap in the ending of the range:
+                #    [......]
+                #        [.....]
+                else:
+                    mapped.append((dst + start - src, dst + length))
+                    new_remaining.append((src + length, end))
+            remaining = new_remaining
 
-    for n in gen_seeds_from_almanac(almanac):
-        for map in almanac["maps"]:
-            for dst, src, range in map["ranges"]:
-                if src <= n < src + range:
-                    n = dst + n - src
-                    break
-        if min_location is None or n < min_location:
-            min_location = n
+        return mapped + remaining
 
-    return min_location
+    ranges = [(start, start + length - 1) for start, length in almanac["seed_ranges"]]
 
+    # The maps are ordered in a correct way, e.g. seed-soil,
+    # soil-fertilizer, etc.
+    for map in almanac["maps"]:
+        ranges = map_ranges(ranges, map["ranges"])
 
-def gen_seeds_from_almanac(almanac):
-    for start, length in almanac["seed_ranges"]:
-        for seed in range(start, start + length):
-            yield seed
+    return min(range[0] for range in ranges)
 
 
 def run_program(input):
