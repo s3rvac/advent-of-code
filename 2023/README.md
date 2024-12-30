@@ -18,7 +18,7 @@ Note: When originally working on the puzzles in 2023, I only uploaded solutions 
 | 6 | [Wait For It](https://adventofcode.com/2023/day/6) | [part 1](06/aoc06_part1.py), [part 2](06/aoc06_part2.py) | 0.1 seconds, 0.1 seconds |
 | 7 | [Camel Cards](https://adventofcode.com/2023/day/7) | [part 1](07/aoc07_part1.py), [part 2](07/aoc07_part2.py) | 0.1 seconds, 0.1 seconds |
 | 8 | [Haunted Wasteland](https://adventofcode.com/2023/day/8) | [part 1](08/aoc08_part1.py), [part 2](08/aoc08_part2.py) | 0.1 seconds, 0.1 seconds |
-| 9 | [Mirage Maintenance](https://adventofcode.com/2023/day/9) | part 1, [part 2](09/aoc09_part2.py) | -, 0.1 seconds |
+| 9 | [Mirage Maintenance](https://adventofcode.com/2023/day/9) | [part 1](09/aoc09_part1.py), [part 2](09/aoc09_part2.py) | 0.1 seconds, 0.1 seconds |
 | 10 | [Pipe Maze](https://adventofcode.com/2023/day/10) | part 1, [part 2](10/aoc10_part2.py) | -, 0.52 seconds |
 | 11 | [Cosmic Expansion](https://adventofcode.com/2023/day/11) | part 1, [part 2](11/aoc11_part2.py) | -, 0.1 seconds |
 | 12 | [Hot Springs](https://adventofcode.com/2023/day/12) | part 1, [part 2](12/aoc12_part2.py) | -, 0.83 seconds |
