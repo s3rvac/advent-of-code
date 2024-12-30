@@ -14,23 +14,18 @@ def read_input():
 
 def parse_input(input):
     lines = input.strip().split("\n")
-
-    m = re.fullmatch(r"Time:\s+(.+)", lines[0])
-    time = int(re.sub(r"\s+", "", m.group(1)))
-
-    m = re.fullmatch(r"Distance:\s+(.+)", lines[1])
-    record_distance = int(re.sub(r"\s+", "", m.group(1)))
-
-    return time, record_distance
+    time = "".join(re.findall(r"\d+", lines[0]))
+    record_distance = "".join(re.findall(r"\d+", lines[1]))
+    return int(time), int(record_distance)
 
 
 def compute_number_of_ways_to_beat_record(time, record_distance):
-    ways_to_beat_record = 0
+    way_count = 0
     for n in range(1, time):
         distance = n * (time - n)
         if distance > record_distance:
-            ways_to_beat_record += 1
-    return ways_to_beat_record
+            way_count += 1
+    return way_count
 
 
 def run_program(input):
