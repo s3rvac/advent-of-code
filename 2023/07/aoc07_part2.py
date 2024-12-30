@@ -8,18 +8,21 @@ import textwrap
 import unittest
 
 
+AVAILABLE_CARDS = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "Q", "K", "A"]
+CARD_STRENGTHS = ["J", "2", "3", "4", "5", "6", "7", "8", "9", "T", "Q", "K", "A"]
+
+
 def read_input():
     with open("input", encoding="utf-8") as f:
         return f.read()
 
 
 def parse_input(input):
+    def parse_hand_and_bid(line):
+        raw_hand, raw_bid = line.split(" ")
+        return list(raw_hand), int(raw_bid)
+
     return [parse_hand_and_bid(line) for line in input.strip().split("\n")]
-
-
-def parse_hand_and_bid(line):
-    raw_hand, raw_bid = line.split(" ")
-    return list(raw_hand), int(raw_bid)
 
 
 def compute_total_winnings(hands_and_bids):
@@ -45,10 +48,8 @@ def get_best_hand_type(hand):
     if joker_count in (4, 5):
         return get_hand_type(["A", "A", "A", "A", "A"])
 
-    available_cards = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "Q", "K", "A"]
-
     hand_types = []
-    for joker_replacement in itertools.product(available_cards, repeat=joker_count):
+    for joker_replacement in itertools.product(AVAILABLE_CARDS, repeat=joker_count):
         hand_without_jokers = replace_jokers(hand, joker_replacement)
         hand_types.append(get_hand_type(hand_without_jokers))
     return max(hand_types)
@@ -68,7 +69,7 @@ def replace_jokers(hand, joker_replacement):
 
 def get_hand_type(hand):
     """Selects the hand type when the given hand does not contain any."""
-    counts = [count for _, count in collections.Counter(hand).most_common()]
+    counts = sorted(collections.Counter(hand).values(), reverse=True)
 
     # Five of kind
     if counts == [5]:
@@ -93,8 +94,7 @@ def get_hand_type(hand):
 
 
 def get_cards_strengths(hand):
-    strengths = ["J", "2", "3", "4", "5", "6", "7", "8", "9", "T", "Q", "K", "A"]
-    return [strengths.index(card) for card in hand]
+    return [CARD_STRENGTHS.index(card) for card in hand]
 
 
 def run_program(input):
