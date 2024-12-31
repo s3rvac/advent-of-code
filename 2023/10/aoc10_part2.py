@@ -16,14 +16,8 @@ def parse_input(input):
     return [list(line) for line in input.strip().split("\n")]
 
 
-def pretty_print_grid(grid):
-    for line in grid:
-        print("".join(line))
-    print()
-
-
 def get_number_of_tiles_enclosed_by_loop(grid):
-    # Let me give an overview of the solution as the approach is non-trivial:
+    # Here is an overview of the solution as the approach is non-trivial:
     #
     # 1. We need to find the starting position and replace its tile with
     #    a proper pipe. This replacement is needed in the following step.
@@ -52,6 +46,7 @@ def find_start_position(grid):
         for j, pipe in enumerate(line):
             if pipe == "S":
                 return i, j
+    raise AssertionError("no start position")
 
 
 def replace_start_position_with_pipe(start_position, grid):
@@ -151,28 +146,28 @@ def expand_grid(start_position, grid):
 
 
 def find_and_mark_loop(start_position, grid):
-    # Do a breath-first search from the starting position ('S') to find the
-    # loop and replace all its characters with '#'. Depth-first search would
+    # Do a depth-first search from the starting position ('S') to find the
+    # loop and replace all its characters with '#'. Breadth-first search would
     # also work here.
     new_grid = copy.deepcopy(grid)
 
-    visited_positions = set()
-    positions_to_check = [start_position]
-    while positions_to_check:
-        current_position = positions_to_check.pop(0)
-        visited_positions.add(current_position)
-        new_grid[current_position[0]][current_position[1]] = "#"
-        for position in get_next_positions(current_position, grid):
-            if position not in visited_positions:
-                positions_to_check.append(position)
+    visited = set()
+    to_check = [start_position]
+    while to_check:
+        i, j = to_check.pop(0)
+        visited.add((i, j))
+        new_grid[i][j] = "#"
+        for position in get_next_positions((i, j), grid):
+            if position not in visited:
+                to_check.append(position)
 
     return new_grid
 
 
-def get_next_positions(current_position, grid):
+def get_next_positions(current, grid):
     # Based on the pipe at the current position in the grid, return the two
     # positions that connect to the pipe.
-    i, j = current_position
+    i, j = current
     next_positions_for_pipe = {
         "|": [(i - 1, j), (i + 1, j)],
         "-": [(i, j - 1), (i, j + 1)],
@@ -220,7 +215,7 @@ def flood_grid(grid):
 
 def count_ground_tiles_in_expanded_grid(grid):
     # Count the number of ground tiles in the expanded grid. A single ground
-    # tile in the original grid is represented by nine groud tiles in the
+    # tile in the original grid is represented by nine ground tiles in the
     # expanded grid. Therefore, count all occurrences of a 3x3 '.' matrix.
     ground_tile_count = 0
 
