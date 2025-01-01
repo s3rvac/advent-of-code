@@ -7,6 +7,9 @@ import textwrap
 import unittest
 
 
+EXPANSION_FACTOR = 1_000_000
+
+
 def read_input():
     with open("input", encoding="utf-8") as f:
         return f.read()
@@ -25,7 +28,7 @@ def get_shortest_paths_between_all_galaxies(universe):
 
 
 def get_coordinates_of_all_galaxies(universe):
-    rows_to_expand, columns_to_expand = get_rows_and_columns_to_expand(universe)
+    rows_to_expand, cols_to_expand = get_rows_and_cols_to_expand(universe)
 
     coordinates = []
     for x, row in enumerate(universe):
@@ -33,50 +36,33 @@ def get_coordinates_of_all_galaxies(universe):
             if c == "#":
                 coordinates.append(
                     get_galaxy_coordinates_in_expanded_universe(
-                        rows_to_expand, columns_to_expand, x, y
+                        rows_to_expand, cols_to_expand, x, y
                     )
                 )
     return coordinates
 
 
-def get_rows_and_columns_to_expand(universe):
+def get_rows_and_cols_to_expand(universe):
     rows_to_expand = [i for i, row in enumerate(universe) if row.count("#") == 0]
-
-    all_columns = [[row[i] for row in universe] for i in range(len(universe[0]))]
-    columns_to_expand = [
-        i for i, column in enumerate(all_columns) if column.count("#") == 0
-    ]
-
-    return rows_to_expand, columns_to_expand
+    cols_to_expand = [i for i, col in enumerate(zip(*universe)) if col.count("#") == 0]
+    return rows_to_expand, cols_to_expand
 
 
-def get_galaxy_coordinates_in_expanded_universe(
-    rows_to_expand, columns_to_expand, x, y
-):
-    expansion_factor = 1_000_000
-
-    expanded_x = 0
-    for i in range(x):
-        expanded_x += expansion_factor if i in rows_to_expand else 1
-
-    expanded_y = 0
-    for i in range(y):
-        expanded_y += expansion_factor if i in columns_to_expand else 1
-
+def get_galaxy_coordinates_in_expanded_universe(rows_to_expand, cols_to_expand, x, y):
+    expanded_x = sum(EXPANSION_FACTOR if i in rows_to_expand else 1 for i in range(x))
+    expanded_y = sum(EXPANSION_FACTOR if j in cols_to_expand else 1 for j in range(y))
     return expanded_x, expanded_y
 
 
 def get_shortest_path_between_two_galaxies(c1, c2):
-    # We can move only left, right, up, and down, so the path of going all the
-    # way horizontally and then vertically is the same as going "diagonally".
-    # Each of the coordinates is of the form (x, y).
+    # Since we are only able to move left/right/up/down, the shortest path is
+    # the taxicab distance: https://en.wikipedia.org/wiki/Taxicab_geometry.
     return abs(c1[0] - c2[0]) + abs(c1[1] - c2[1])
 
 
 def run_program(input):
     universe = parse_input(input)
-    shortest_paths = get_shortest_paths_between_all_galaxies(universe)
-    return sum(shortest_paths)
+    return sum(get_shortest_paths_between_all_galaxies(universe))
 
 
 if __name__ == "__main__":
