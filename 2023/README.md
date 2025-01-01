@@ -34,7 +34,7 @@ Note: When originally working on the puzzles in 2023, I only uploaded solutions 
 | 22 | [Sand Slabs](https://adventofcode.com/2023/day/22) | part 1, [part 2](22/aoc22_part2.py) | -, 37 seconds |
 | 23 | [A Long Walk](https://adventofcode.com/2023/day/23) | part 1, [part 2](23/aoc23_part2.py) | -, 3 days |
 | 24 | [Never Tell Me The Odds](https://adventofcode.com/2023/day/24) | [part 1](24/aoc24_part1.py), part 2 | 0.24 seconds, - |
-| 25 | [Snowverload](https://adventofcode.com/2023/day/25) | [parts 1 & 2](25/aoc25.py) | 6.5 seconds |
+| 25 | [Snowverload](https://adventofcode.com/2023/day/25) | [parts 1 & 2](25/aoc25.py)* | 7.1 seconds |
 
 \* = tailored to my specific input
 

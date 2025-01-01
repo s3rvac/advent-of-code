@@ -1,7 +1,10 @@
 #
 # Advent of Code 2023, day 25
 #
-# Requirements: pip install networkx==3.2.1
+# WARNING: The solution works for my input but might not be general enough to
+# work for any input!
+#
+# Requirements: pip install networkx==3.4.2
 #
 
 import textwrap
@@ -25,15 +28,15 @@ def parse_input(input):
 
 
 def disconnect_wires_to_separate_graph_into_two_components(graph):
-    # Use the Stoer-Wagner algorithm [1], implemented in the networkx library [2],
-    # to find the minimal cut in the graph. For both the example and actual
-    # inputs, the cut size is 3, which means that the graph can be separated
+    # Use the Stoer-Wagner algorithm [1], implemented in the networkx library
+    # [2], to find the minimal cut in the graph. For both the example and my
+    # input, the cut size is 3, which means that the graph can be separated
     # into two components by removing 3 edges. This is exactly what is required
     # by the assignment. Hence, I did not invest more time into finding a
     # general solution.
     #
     # [1] https://en.wikipedia.org/wiki/Stoer%E2%80%93Wagner_algorithm
-    # [2] https://networkx.org/documentation/networkx-2.4/reference/algorithms/generated/networkx.algorithms.connectivity.stoerwagner.stoer_wagner.html
+    # [2] https://networkx.org/documentation/networkx-3.4/reference/algorithms/generated/networkx.algorithms.connectivity.stoerwagner.stoer_wagner.html
     cut_size, components = networkx.stoer_wagner(graph)
     assert cut_size == 3, "your input requires multiple algorithm runs"
     return components
