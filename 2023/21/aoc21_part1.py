@@ -6,6 +6,9 @@ import textwrap
 import unittest
 
 
+DIRECTIONS = [(0, 1), (1, 0), (-1, 0), (0, -1)]
+
+
 def read_input():
     with open("input", encoding="utf-8") as f:
         return f.read()
@@ -16,20 +19,15 @@ def parse_input(input):
 
 
 def count_garden_plots_after_steps(map, steps):
-    DIRECTIONS = [(0, 1), (1, 0), (-1, 0), (0, -1)]
     positions = {get_start_position(map)}
 
     for _ in range(steps):
         new_positions = set()
         for i, j in positions:
             for ix, jx in DIRECTIONS:
-                new_i, new_j = i + ix, j + jx
-                if (
-                    0 <= new_i < len(map)
-                    and 0 <= new_j < len(map[new_i])
-                    and map[new_i][new_j] != "#"
-                ):
-                    new_positions.add((new_i, new_j))
+                ni, nj = i + ix, j + jx
+                if 0 <= ni < len(map) and 0 <= nj < len(map[ni]) and map[ni][nj] != "#":
+                    new_positions.add((ni, nj))
         positions = new_positions
 
     return len(positions)
@@ -40,7 +38,8 @@ def get_start_position(map):
         for j in range(len(map[i])):
             if map[i][j] == "S":
                 return i, j
-    raise AssertionError("No start position found")
+
+    raise AssertionError("no start position found")
 
 
 def run_program(input, steps):
