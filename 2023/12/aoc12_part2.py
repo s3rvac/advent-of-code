@@ -4,15 +4,14 @@
 
 import dataclasses
 import functools
-import re
 import textwrap
 import unittest
 
 
-@dataclasses.dataclass(frozen=True)
+@dataclasses.dataclass
 class SpringRecord:
     springs: str
-    damaged: tuple[int]
+    damaged: tuple[int, ...]
 
 
 def read_input():
@@ -22,11 +21,11 @@ def read_input():
 
 def parse_input(input):
     def parse_spring_record(sr):
-        springs, raw_damanged_springs = sr.split(" ")
+        springs, raw_damanged_springs = sr.split()
         damaged = tuple(int(n) for n in raw_damanged_springs.split(","))
         return SpringRecord(springs, damaged)
 
-    return [parse_spring_record(line) for line in input.strip().split("\n")]
+    return list(map(parse_spring_record, input.strip().split("\n")))
 
 
 def unfold_spring_records(spring_records):
@@ -36,11 +35,11 @@ def unfold_spring_records(spring_records):
             damaged=spring_record.damaged * 5,
         )
 
-    return [unfold(spring_record) for spring_record in spring_records]
+    return list(map(unfold, spring_records))
 
 
 def get_arrangement_counts(spring_records):
-    return [get_arrangement_count(spring_records) for spring_records in spring_records]
+    return list(map(get_arrangement_count, spring_records))
 
 
 def get_arrangement_count(spring_record):
@@ -65,16 +64,13 @@ def get_arrangement_count(spring_record):
             return 0
         return get_count(s[1:], d)
 
-    s = spring_record.springs
-    d = spring_record.damaged
-    return get_count(s, d)
+    return get_count(spring_record.springs, spring_record.damaged)
 
 
 def run_program(input):
     spring_records = parse_input(input)
     spring_records = unfold_spring_records(spring_records)
-    arrangement_counts = get_arrangement_counts(spring_records)
-    return sum(arrangement_counts)
+    return sum(get_arrangement_counts(spring_records))
 
 
 if __name__ == "__main__":
