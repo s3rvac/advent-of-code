@@ -15,10 +15,6 @@ def parse_input(input):
     return [pattern.split("\n") for pattern in input.strip().split("\n\n")]
 
 
-def summarize_patterns(patterns):
-    return sum(fix_smudge_and_evaluate_pattern(pattern) for pattern in patterns)
-
-
 def fix_smudge_and_evaluate_pattern(pattern):
     # Horizontal reflection.
     if count := fix_smudge_and_evaluate_pattern_horizontally(pattern):
@@ -36,9 +32,8 @@ def transpose_pattern(pattern):
 
 
 def fix_smudge_and_evaluate_pattern_horizontally(pattern):
-    # The gist behind the implementation is that we try to do the split after
-    # every row and check whether it is possible to find a reflection while
-    # fixing a single smudge.
+    # Try to do the split after every row and check whether it is possible to
+    # find a reflection while fixing a single smudge.
     def can_be_split_after_row_while_fixing_smudge(i):
         smudge_fixed = False
         for row1, row2 in zip(reversed(pattern[: i + 1]), pattern[i + 1 :]):
@@ -55,7 +50,7 @@ def fix_smudge_and_evaluate_pattern_horizontally(pattern):
         if can_be_split_after_row_while_fixing_smudge(i):
             return i + 1
 
-    return None
+    return 0
 
 
 def hamming_distance(s1, s2):
@@ -67,7 +62,7 @@ def hamming_distance(s1, s2):
 
 def run_program(input):
     patterns = parse_input(input)
-    return summarize_patterns(patterns)
+    return sum(map(fix_smudge_and_evaluate_pattern, patterns))
 
 
 if __name__ == "__main__":
