@@ -29,9 +29,10 @@ def cycle_platform_n_times(platform, n):
     while i < n:
         cycle_platform_once(platform)
         i += 1
-        if current_configuration() in seen_configurations:
+        configuration = current_configuration()
+        if configuration in seen_configurations:
             break
-        seen_configurations.add(current_configuration())
+        seen_configurations.add(configuration)
 
     repeating_configuration = current_configuration()
 
@@ -45,16 +46,16 @@ def cycle_platform_n_times(platform, n):
         if current_configuration() == repeating_configuration:
             break
 
-    # Skip cycles which would get us into the repeating configuration and
+    # Skip cycles that would get us into the repeating configuration and
     # finalize the cycling.
-    n = max((n - i), 0) % repeat_period
+    n = max(n - i, 0) % repeat_period
     for _ in range(n):
         cycle_platform_once(platform)
 
 
 def cycle_platform_once(platform):
     def tilt_platform(move_stones_to):
-        # Iteratively move stones until the platform does not change anymore.
+        # Iteratively move stones until the platform stops changing.
         platform_changed = True
         while platform_changed:
             platform_changed = False
