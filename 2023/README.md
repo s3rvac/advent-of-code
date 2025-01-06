@@ -24,7 +24,7 @@ Note: When originally working on the puzzles in 2023, I only uploaded solutions 
 | 12 | [Hot Springs](https://adventofcode.com/2023/day/12) | [part 1](12/aoc12_part1.py), [part 2](12/aoc12_part2.py) | 0.1 seconds, 0.9 seconds |
 | 13 | [Point of Incidence](https://adventofcode.com/2023/day/13) | [part 1](13/aoc13_part1.py), [part 2](13/aoc13_part2.py) | 0.1 seconds, 0.1 seconds |
 | 14 | [Parabolic Reflector Dish](https://adventofcode.com/2023/day/14) | [part 1](14/aoc14_part1.py), [part 2](14/aoc14_part2.py) | 0.1 seconds, 3.4 seconds |
-| 15 | [Lens Library](https://adventofcode.com/2023/day/15) | part 1, [part 2](15/aoc15_part2.py) | -, 0.1 seconds |
+| 15 | [Lens Library](https://adventofcode.com/2023/day/15) | [part 1](15/aoc15_part1.py), [part 2](15/aoc15_part2.py) | 0.1 seconds, 0.1 seconds |
 | 16 | [The Floor Will Be Lava](https://adventofcode.com/2023/day/16) | part 1, [part 2](16/aoc16_part2.py) | -, 1.2 seconds |
 | 17 | [Clumsy Crucible](https://adventofcode.com/2023/day/17) | part 1, [part 2](17/aoc17_part2.py) | -, 5.8 seconds |
 | 18 | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18) | [part 1](18/aoc18_part1.py), part 2 | 0.3 seconds, - |
