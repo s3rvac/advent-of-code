@@ -19,6 +19,7 @@ def parse_input(input):
 def do_hashmap_procedure(initialization_sequence):
     def parse_step(step):
         m = re.fullmatch(r"([a-z]+)([-=])(\d?)", step)
+        assert m is not None
         label = m.group(1)
         op = m.group(2)
         focal_length = int(m.group(3)) if m.group(3) else 0
@@ -38,11 +39,13 @@ def do_hashmap_procedure(initialization_sequence):
                     break
             else:  # nobreak
                 box.append(new_lens)
-        else:  # op == '-'
+        elif op == "-":
             for i in range(len(box)):
                 if box[i][0] == label:
                     del box[i]
                     break
+        else:
+            raise AssertionError(f"invalid op: {op}")
 
     return boxes
 
@@ -50,9 +53,7 @@ def do_hashmap_procedure(initialization_sequence):
 def hash_string(string):
     hash = 0
     for c in string:
-        hash += ord(c)
-        hash *= 17
-        hash %= 256
+        hash = ((hash + ord(c)) * 17) % 256
     return hash
 
 
