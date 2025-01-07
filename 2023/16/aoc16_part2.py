@@ -9,10 +9,10 @@ import unittest
 
 @dataclasses.dataclass(frozen=True)
 class Beam:
-    pos_x: int
-    pos_y: int
-    dir_x: int
-    dir_y: int
+    x: int
+    y: int
+    dx: int
+    dy: int
 
 
 def read_input():
@@ -53,81 +53,69 @@ def gen_possible_start_beams(contraption):
 
 
 def count_energized_tiles_from_start_beam(contraption, start_beam):
-    # The gist is that we create a copy of the contraption composed of 0s (not
-    # energized) and 1s (energized), and then do a depth-first search
-    # (breadth-first search would work as well) until we cover all the possible
-    # paths in the contraption.
-    is_energized_grid = [list(0 for _ in range(len(row))) for row in contraption]
+    def is_in_bounds(beam):
+        return 0 <= beam.x < len(contraption) and 0 <= beam.y < len(contraption[beam.x])
 
+    # We keep iterating until we cover all the possible paths in the
+    # contraption. Then, the we get the number of energized tiles from the set
+    # of beams that we have visited.
+    visited_beams = set()
     beams = [start_beam]
-    checked_beams = set()
     while beams:
         beam = beams.pop()
-        if beam in checked_beams or is_beam_out_of_bounds(beam, contraption):
-            continue
+        if beam not in visited_beams and is_in_bounds(beam):
+            visited_beams.add(beam)
+            beams.extend(get_next_beams(beam, contraption))
 
-        checked_beams.add(beam)
-        is_energized_grid[beam.pos_x][beam.pos_y] = 1
-        next_beams = get_next_beams(beam, contraption)
-        beams.extend(next_beams)
-
-    return sum(sum(row) for row in is_energized_grid)
-
-
-def is_beam_out_of_bounds(beam, contraption):
-    return (
-        beam.pos_x < 0
-        or beam.pos_x >= len(contraption)
-        or beam.pos_y < 0
-        or beam.pos_y >= len(contraption[0])
-    )
+    return len({(beam.x, beam.y) for beam in visited_beams})
 
 
 def get_next_beams(beam, contraption):
-    tile = contraption[beam.pos_x][beam.pos_y]
-    if tile == ".":
-        return [
-            Beam(
-                beam.pos_x + beam.dir_x,
-                beam.pos_y + beam.dir_y,
-                beam.dir_x,
-                beam.dir_y,
-            )
-        ]
-    elif tile == "\\":
-        if beam.dir_x == 0 and beam.dir_y == +1:
-            return [Beam(beam.pos_x + 1, beam.pos_y, +1, 0)]
-        elif beam.dir_x == 0 and beam.dir_y == -1:
-            return [Beam(beam.pos_x - 1, beam.pos_y, -1, 0)]
-        elif beam.dir_x == -1 and beam.dir_y == 0:
-            return [Beam(beam.pos_x, beam.pos_y - 1, 0, -1)]
-        elif beam.dir_x == +1 and beam.dir_y == 0:
-            return [Beam(beam.pos_x, beam.pos_y + 1, 0, +1)]
-    elif tile == "/":
-        if beam.dir_x == 0 and beam.dir_y == +1:
-            return [Beam(beam.pos_x - 1, beam.pos_y, -1, 0)]
-        elif beam.dir_x == 0 and beam.dir_y == -1:
-            return [Beam(beam.pos_x + 1, beam.pos_y, +1, 0)]
-        elif beam.dir_x == -1 and beam.dir_y == 0:
-            return [Beam(beam.pos_x, beam.pos_y + 1, 0, +1)]
-        elif beam.dir_x == +1 and beam.dir_y == 0:
-            return [Beam(beam.pos_x, beam.pos_y - 1, 0, -1)]
-    elif tile == "|":
-        if beam.dir_y == 0:
-            return [Beam(beam.pos_x + beam.dir_x, beam.pos_y, beam.dir_x, 0)]
-        else:
+    match contraption[beam.x][beam.y]:
+        case ".":
             return [
-                Beam(beam.pos_x - 1, beam.pos_y, -1, 0),
-                Beam(beam.pos_x + 1, beam.pos_y, +1, 0),
+                Beam(
+                    beam.x + beam.dx,
+                    beam.y + beam.dy,
+                    beam.dx,
+                    beam.dy,
+                )
             ]
-    elif tile == "-":
-        if beam.dir_x == 0:
-            return [Beam(beam.pos_x, beam.pos_y + beam.dir_y, 0, beam.dir_y)]
-        else:
-            return [
-                Beam(beam.pos_x, beam.pos_y - 1, 0, -1),
-                Beam(beam.pos_x, beam.pos_y + 1, 0, +1),
-            ]
+        case "\\":
+            if beam.dx == 0 and beam.dy == +1:
+                return [Beam(beam.x + 1, beam.y, +1, 0)]
+            elif beam.dx == 0 and beam.dy == -1:
+                return [Beam(beam.x - 1, beam.y, -1, 0)]
+            elif beam.dx == -1 and beam.dy == 0:
+                return [Beam(beam.x, beam.y - 1, 0, -1)]
+            elif beam.dx == +1 and beam.dy == 0:
+                return [Beam(beam.x, beam.y + 1, 0, +1)]
+        case "/":
+            if beam.dx == 0 and beam.dy == +1:
+                return [Beam(beam.x - 1, beam.y, -1, 0)]
+            elif beam.dx == 0 and beam.dy == -1:
+                return [Beam(beam.x + 1, beam.y, +1, 0)]
+            elif beam.dx == -1 and beam.dy == 0:
+                return [Beam(beam.x, beam.y + 1, 0, +1)]
+            elif beam.dx == +1 and beam.dy == 0:
+                return [Beam(beam.x, beam.y - 1, 0, -1)]
+        case "|":
+            if beam.dy == 0:
+                return [Beam(beam.x + beam.dx, beam.y, beam.dx, 0)]
+            else:
+                return [
+                    Beam(beam.x - 1, beam.y, -1, 0),
+                    Beam(beam.x + 1, beam.y, +1, 0),
+                ]
+        case "-":
+            if beam.dx == 0:
+                return [Beam(beam.x, beam.y + beam.dy, 0, beam.dy)]
+            else:
+                return [
+                    Beam(beam.x, beam.y - 1, 0, -1),
+                    Beam(beam.x, beam.y + 1, 0, +1),
+                ]
+    raise AssertionError("unhandled move in get_next_beams()")
 
 
 def run_program(input):
