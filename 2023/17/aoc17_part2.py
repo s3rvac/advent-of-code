@@ -27,8 +27,8 @@ def get_min_heat_loss_when_navigating_crucible(map):
     # Format: (heat_loss, i, j, ix, jx, steps)
     q = [(0, 0, 0, 0, 0, 0)]
 
-    # We need to maintain a set of visited configurations as to not visit the
-    # same configuration twice (disregarding heat loss).
+    # We need to maintain a set of visited configurations so we do not visit
+    # the same configuration twice (disregarding the heat loss).
     visited = set()
 
     def check(heat_loss, i, j, ix, jx, steps):
