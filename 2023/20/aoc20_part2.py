@@ -8,14 +8,13 @@
 import collections
 import dataclasses
 import math
-import typing
 
 
 @dataclasses.dataclass
 class Module:
     name: str
     type: str
-    destinations: typing.List[str]
+    destinations: list[str]
 
 
 def read_input():
