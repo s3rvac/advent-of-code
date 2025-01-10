@@ -29,7 +29,7 @@ Note: When originally working on the puzzles in 2023, I only uploaded solutions 
 | 17 | [Clumsy Crucible](https://adventofcode.com/2023/day/17) | [part 1](17/aoc17_part1.py), [part 2](17/aoc17_part2.py) | 1.5 seconds, 4.5 seconds |
 | 18 | [Lavaduct Lagoon](https://adventofcode.com/2023/day/18) | [part 1](18/aoc18_part1.py), part 2 | 0.3 seconds, - |
 | 19 | [Aplenty](https://adventofcode.com/2023/day/19) | [part 1](19/aoc19_part1.py), [part 2](19/aoc19_part2.py) | 0.1 seconds, 0.1 seconds |
-| 20 | [Pulse Propagation](https://adventofcode.com/2023/day/20) | part 1, [part 2](20/aoc20_part2.py)* | -, 0.3 seconds |
+| 20 | [Pulse Propagation](https://adventofcode.com/2023/day/20) | [part 1](20/aoc20_part1.py), [part 2](20/aoc20_part2.py)* | 0.1 seconds, 0.3 seconds |
 | 21 | [Step Counter](https://adventofcode.com/2023/day/21) | [part 1](21/aoc21_part1.py), part 2 | 0.2 seconds, - |
 | 22 | [Sand Slabs](https://adventofcode.com/2023/day/22) | part 1, [part 2](22/aoc22_part2.py) | -, 37 seconds |
 | 23 | [A Long Walk](https://adventofcode.com/2023/day/23) | [part 1](23/aoc23_part1.py), [part 2](23/aoc23_part2.py) | 0.1 seconds, 15 seconds |
