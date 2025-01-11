@@ -7,7 +7,7 @@ import textwrap
 import unittest
 
 
-@dataclasses.dataclass(frozen=True)
+@dataclasses.dataclass
 class Brick:
     x1: int
     y1: int
@@ -43,7 +43,7 @@ class Brick:
 
 
 class Bricks(list):
-    def without_brick(self, brick):
+    def without(self, brick):
         i = self.index(brick)
         return Bricks(self[:i] + self[i + 1 :])
 
@@ -57,7 +57,7 @@ def read_input():
 
 
 def parse_input(input):
-    return Bricks(Brick.from_string(line) for line in input.strip().split("\n"))
+    return Bricks(map(Brick.from_string, input.strip().split("\n")))
 
 
 def try_moving_brick_down(brick, i, bricks):
@@ -73,8 +73,8 @@ def try_moving_brick_down(brick, i, bricks):
 
 def stabilize_bricks(bricks):
     # By ordering the bricks by their z coordinates, we can speedup the
-    # computation as we can just checks the bricks one by one, without a need
-    # of returning to an already positioned brick.
+    # computation as we can just check the bricks one by one, without a need of
+    # returning to an already positioned brick.
     bricks.order_by_z()
 
     fallen_brick_ids = set()
@@ -87,7 +87,7 @@ def stabilize_bricks(bricks):
 
 
 def count_bricks_that_would_fall_after_disintegrating_brick(brick, bricks):
-    new_bricks = bricks.without_brick(brick)
+    new_bricks = bricks.without(brick)
     fallen_brick_count = stabilize_bricks(new_bricks)
     return fallen_brick_count
 
