@@ -17,6 +17,8 @@ def parse_input(input):
 
 
 def get_password(rotations):
+    # The password is the number of times the dial is left pointing at 0 after
+    # any rotation.
     password = 0
 
     c = 50

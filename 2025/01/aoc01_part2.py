@@ -17,6 +17,8 @@ def parse_input(input):
 
 
 def get_password(rotations):
+    # The password is the number of times the dial points at 0, regardless of
+    # whether it happens during a rotation or at the end of one.
     password = 0
 
     c = 50
