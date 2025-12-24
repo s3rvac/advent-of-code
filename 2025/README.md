@@ -11,7 +11,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | Day | Puzzle | Solutions | Runtimes |
 | ---- | ---- | ---- | ---- |
 | 1 | [Secret Entrance](https://adventofcode.com/2025/day/1) | [part 1](01/aoc01_part1.py), [part 2](01/aoc01_part2.py) | 0.1 seconds, 0.1 seconds |
-| 2 | [Gift Shop](https://adventofcode.com/2025/day/2) | TBD | TBD |
+| 2 | [Gift Shop](https://adventofcode.com/2025/day/2) | [part 1](02/aoc02_part1.py) | 0.5 seconds |
 | 3 | [Lobby](https://adventofcode.com/2025/day/3) | TBD | TBD |
 | 4 | [Printing Department](https://adventofcode.com/2025/day/4) | TBD | TBD |
 | 5 | [Cafeteria](https://adventofcode.com/2025/day/5) | TBD | TBD |
