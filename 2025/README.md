@@ -16,7 +16,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 4 | [Printing Department](https://adventofcode.com/2025/day/4) | [part 1](04/aoc04_part1.py), [part 2](04/aoc04_part2.py) | 0.1 seconds, 0.6 seconds |
 | 5 | [Cafeteria](https://adventofcode.com/2025/day/5) | [part 1](05/aoc05_part1.py), [part 2](05/aoc05_part2.py) | 0.1 seconds, 0.1 seconds |
 | 6 | [Trash Compactor](https://adventofcode.com/2025/day/6) | [part 1](06/aoc06_part1.py), [part 2](06/aoc06_part2.py) | 0.1 seconds, 0.1 seconds |
-| 7 | [Laboratories](https://adventofcode.com/2025/day/7) | [part 1](07/aoc07_part1.py) | 0.1 seconds |
+| 7 | [Laboratories](https://adventofcode.com/2025/day/7) | [part 1](07/aoc07_part1.py), [part 2](07/aoc07_part2.py) | 0.1 seconds, 0.1 seconds |
 | 8 | [Playground](https://adventofcode.com/2025/day/8) | TBD | TBD |
 | 9 | [Movie Theater](https://adventofcode.com/2025/day/9) | TBD | TBD |
 | 10 | [Factory](https://adventofcode.com/2025/day/10) | TBD | TBD |
