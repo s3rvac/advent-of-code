@@ -22,10 +22,7 @@ def get_area_of_largest_rectangle(red_tiles):
         width = abs(c1[1] - c2[1]) + 1
         return length * width
 
-    return max(
-        compute_area(corner1, corner2)
-        for corner1, corner2 in itertools.combinations(red_tiles, 2)
-    )
+    return max(compute_area(c1, c2) for c1, c2 in itertools.combinations(red_tiles, 2))
 
 
 def run_program(input):
