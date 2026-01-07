@@ -18,7 +18,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 6 | [Trash Compactor](https://adventofcode.com/2025/day/6) | [part 1](06/aoc06_part1.py), [part 2](06/aoc06_part2.py) | 0.1 seconds, 0.1 seconds |
 | 7 | [Laboratories](https://adventofcode.com/2025/day/7) | [part 1](07/aoc07_part1.py), [part 2](07/aoc07_part2.py) | 0.1 seconds, 0.1 seconds |
 | 8 | [Playground](https://adventofcode.com/2025/day/8) | [part 1](08/aoc08_part1.py), [part 1](08/aoc08_part2.py) | 0.8 seconds, 0.8 seconds |
-| 9 | [Movie Theater](https://adventofcode.com/2025/day/9) | [part 1](09/aoc09_part1.py) | 0.1 seconds |
+| 9 | [Movie Theater](https://adventofcode.com/2025/day/9) | [part 1](09/aoc09_part1.py), [part 2](09/aoc09_part2.py) | 0.1 seconds, 10 seconds |
 | 10 | [Factory](https://adventofcode.com/2025/day/10) | TBD | TBD |
 | 11 | [Reactor](https://adventofcode.com/2025/day/11) | TBD | TBD |
 | 12 | [Christmas Tree Farm](https://adventofcode.com/2025/day/12) | TBD | TBD |
