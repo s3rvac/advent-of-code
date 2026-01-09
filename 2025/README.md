@@ -20,5 +20,5 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 8 | [Playground](https://adventofcode.com/2025/day/8) | [part 1](08/aoc08_part1.py), [part 1](08/aoc08_part2.py) | 0.8 seconds, 0.8 seconds |
 | 9 | [Movie Theater](https://adventofcode.com/2025/day/9) | [part 1](09/aoc09_part1.py), [part 2](09/aoc09_part2.py) | 0.1 seconds, 10 seconds |
 | 10 | [Factory](https://adventofcode.com/2025/day/10) | TBD | TBD |
-| 11 | [Reactor](https://adventofcode.com/2025/day/11) | [part 1](11/aoc11_part1.py) | 0.1 seconds |
+| 11 | [Reactor](https://adventofcode.com/2025/day/11) | [part 1](11/aoc11_part1.py), [part 2](11/aoc11_part2.py) | 0.1 seconds, 0.1 seconds |
 | 12 | [Christmas Tree Farm](https://adventofcode.com/2025/day/12) | TBD | TBD |
