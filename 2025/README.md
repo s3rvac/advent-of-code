@@ -6,8 +6,6 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 
 ## Solution Table
 
-🚧 WiP 🚧
-
 | Day | Puzzle | Solutions | Runtimes |
 | ---- | ---- | ---- | ---- |
 | 1 | [Secret Entrance](https://adventofcode.com/2025/day/1) | [part 1](01/aoc01_part1.py), [part 2](01/aoc01_part2.py) | 0.1 seconds, 0.1 seconds |
@@ -21,4 +19,6 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 9 | [Movie Theater](https://adventofcode.com/2025/day/9) | [part 1](09/aoc09_part1.py), [part 2](09/aoc09_part2.py) | 0.1 seconds, 10 seconds |
 | 10 | [Factory](https://adventofcode.com/2025/day/10) | [part 1](10/aoc10_part1.py), [part 2](10/aoc10_part2.py) | 5.2 seconds, 0.8 seconds |
 | 11 | [Reactor](https://adventofcode.com/2025/day/11) | [part 1](11/aoc11_part1.py), [part 2](11/aoc11_part2.py) | 0.1 seconds, 0.1 seconds |
-| 12 | [Christmas Tree Farm](https://adventofcode.com/2025/day/12) | TBD | TBD |
+| 12 | [Christmas Tree Farm](https://adventofcode.com/2025/day/12) | [parts 1 & 2](12/aoc12.py)* | 0.1 seconds |
+
+\* = tailored to my specific input
