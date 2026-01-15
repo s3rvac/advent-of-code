@@ -22,3 +22,7 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 | 12 | [Christmas Tree Farm](https://adventofcode.com/2025/day/12) | [parts 1 & 2](12/aoc12.py)* | 0.1 seconds |
 
 \* = tailored to my specific input
+
+## Main Page
+
+[![Advent of Code 2025 Screenshot](aoc-2025-screenshot.png "Advent of Code 2025 Screenshot")](aoc-2025-screenshot.png)
