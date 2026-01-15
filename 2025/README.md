@@ -6,6 +6,8 @@ They are implemented in [Python](https://www.python.org/) and tested with CPytho
 
 ## Solution Table
 
+Note: There were only 12 days this year instead of the regular 25.
+
 | Day | Puzzle | Solutions | Runtimes |
 | ---- | ---- | ---- | ---- |
 | 1 | [Secret Entrance](https://adventofcode.com/2025/day/1) | [part 1](01/aoc01_part1.py), [part 2](01/aoc01_part2.py) | 0.1 seconds, 0.1 seconds |
